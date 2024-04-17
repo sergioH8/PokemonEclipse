@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="665.0" prefWidth="954.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectopokemonlatigocepa.controller.CombateController">
+   <children>
+      <ImageView fx:id="imgCombate" fitHeight="665.0" fitWidth="953.0" layoutY="-1.0">
+         <image>
+            <Image url="@../imgs/ringCombate2.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgPokemon" fitHeight="124.0" fitWidth="150.0" layoutX="248.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgRival" fitHeight="124.0" fitWidth="150.0" layoutX="534.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true" />
+      <ProgressBar fx:id="pbarPokemon" layoutX="198.0" layoutY="143.0" prefWidth="200.0" progress="0.0" />
+      <ProgressBar fx:id="pbarRival" layoutX="534.0" layoutY="143.0" prefHeight="18.0" prefWidth="225.0" progress="0.0" />
+      <RadioButton fx:id="rbtnPokemon" layoutX="29.0" layoutY="136.0" mnemonicParsing="false" text="INTIMIDAR">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.05964912101626396" green="0.8947368264198303" blue="0.8947368264198303" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </RadioButton>
+      <TextArea fx:id="txtaCombate" layoutX="466.0" layoutY="551.0" opacity="0.8" prefHeight="104.0" prefWidth="423.0" />
+      <MenuBar fx:id="mbarMenu" focusTraversable="false" layoutX="132.0" layoutY="455.0" opacity="0.8">
+        <menus>
+          <Menu fx:id="mnAtaques" mnemonicParsing="false" text="ATAQUES">
+            <items>
+              <MenuItem mnemonicParsing="false" text="ATAQUE1" />
+                  <MenuItem mnemonicParsing="false" text="ATAQUE2" />
+                  <MenuItem mnemonicParsing="false" text="ATAQUE3" />
+                  <MenuItem mnemonicParsing="false" text="ATAQUE4" />
+            </items>
+          </Menu>
+          <Menu fx:id="mnEquipo" mnemonicParsing="false" text="EQUIPO">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu fx:id="mnMochila" mnemonicParsing="false" text="MOCHILA">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+            <Menu fx:id="mnRetirada" mnemonicParsing="false" text="RETIRADA">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <RadioButton fx:id="rbtnRival" layoutX="789.0" layoutY="136.0" mnemonicParsing="false" text="INTIMIDAR">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.05964912101626396" green="0.8947368264198303" blue="0.8947368264198303" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </RadioButton>
+   </children>
+</AnchorPane>
