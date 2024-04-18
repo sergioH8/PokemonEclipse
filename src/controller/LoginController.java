@@ -1,13 +1,11 @@
 package controller;
 
 
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import crud.ConexionBD;
 import crud.LoginCRUD;
@@ -28,8 +26,8 @@ import modelo.Entrenador;
 
 public class LoginController {
 	
-	 private Stage stage;
-	 
+	private Stage stage;
+	
     @FXML
     public ImageView imgLogin;
     @FXML
@@ -57,7 +55,7 @@ public class LoginController {
         //Otra opción para cerrar la ventana: System.exit(0);
     }
 
-
+    
     @FXML
     private void eventKey(KeyEvent event){
         Object evt = event.getSource();
@@ -65,6 +63,7 @@ public class LoginController {
         if(event.getCharacter().equals(" ")){
             event.consume();
         }
+    }
         /*
         if(evt.equals(txtFUser)){
             if(event.getCharacter().equals(" ")){
@@ -75,111 +74,80 @@ public class LoginController {
                 event.consume();
             }
         }
-         */
-
-    }
 
 
-    /**
-     * Metodo para iniciar sesion
-     * @throws SQLException 
-     */
-/*
-    	
-        @FXML
-    public void loguearme(ActionEvent event) {
-        LoginCRUD.inicioSesion(txtFUser.getText(), txtPassword.getText());
-        if(txtFUser != null && txtPassword != null){
-            try{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("src/main/java/com/e/vistas/vistaMenu.fxml"));
-                Parent root = fxmlLoader.load();
-                Scene scene = new Scene(root);
-                Stage stage = new Stage();
-                Stage stageActual = (Stage) btnIniciarSesion.getScene().getWindow();
-                stageActual.close();
 
-                MenuController menuController = fxmlLoader.getController();
-                Entrenador entrenador = new Entrenador();
 
-                entrenador.setNombre(txtFUser.getText());
-                entrenador.setPass(txtPassword.getText());
-
-                SingletonEntrenador.getInstance(entrenador);
-
-                menuController.init();
-
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.setScene(scene);
-                stage.showAndWait();
-
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }else{
-            System.out.println("Usuario y/o contraseña no válidos.");
-        }
-    }
-
-    */
-    public void loguearme(ActionEvent event) throws SQLException {
+	
+    /*
+	METODO DE LOGIN DE LUISRE
+	*/
+    public void loguearme(ActionEvent event) throws SQLException{
         Object evt = event.getSource();
 
-        if (txtFUser.getText().isEmpty()) {
+        if(txtFUser.getText().isEmpty()){
             lblError.setText("Error: Inserta el usuario");
             lblError.setVisible(true);
-        } else if (txtPassword.getText().isEmpty()) {
+        }else if(txtPassword.getText().isEmpty()) {
             lblError.setText("Error: Inserta la contraseña");
             lblError.setVisible(true);
-        } else {
+        }else{
             String usuario = txtFUser.getText();
             String pass = txtPassword.getText();
 
-            String sql = "SELECT PASS FROM ENTRENADOR WHERE NOMBRE = ?";
-
-            try {
-                ConexionBD con = new ConexionBD();
-                Connection conexion = con.getConexion();
-
-                PreparedStatement ps = conexion.prepareStatement(sql);
-                ps.setString(1, usuario);
-
-                ResultSet rs = ps.executeQuery();
-
-                if (!rs.isBeforeFirst()) {
-                    lblError.setText("Usuario no registrado");
-                    lblError.setVisible(true);
-                } else {
-                    while (rs.next()) {
-                        if (rs.getString(1).equals(pass)) {
-                            System.out.println("Usuario encontrado");
-
-                            // Cargar la nueva ventana
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/vistaMenu.fxml"));
-                            Parent root = loader.load();
-                            MenuController menuController = loader.getController();
-                            Scene scene = new Scene(root);
-                            Stage stage = new Stage();
-                            stage.setScene(scene); // cargamos la escena nueva en el stage
-
-                            menuController.init();
-                            stage.setScene(scene);
-                            stage.show();
-                            this.stage.close();
-                        } else {
-                            lblError.setText("Contraseña incorrecta");
-                            lblError.setVisible(true);
-                        }
-                    }
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            String sql = "SELECT PASS" +
+                    " FROM ENTRENADOR" +
+                    " WHERE NOMBRE = ?";
+			
+			ConexionBD con = new ConexionBD();
+			
+			Connection conexion = con.getConexion();
+			
+			try{
+				PreparedStatement pst = conexion.prepareStatement(sql);
+				pst.setString(1, usuario);
+				
+				
+				ResultSet rs = pst.executeQuery(); //En el Statement si se necesita st.executeQuery(sql), pero el pst no necesita pasar la SQL, solo executeQuery
+				if(!rs.isBeforeFirst()){
+					lblError.setText("Usuario no registrado.");
+						lblError.setVisible(true);
+				}else{
+					while(rs.next()){
+						if(rs.getString(1).equals(pass)){
+							System.out.println("Usuario encontrado");
+							//Cambiamos de ventana
+							try{
+								FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/vistaMenu.fxml"));
+								Parent root = loader.load();
+								MenuController menuController = loader.getController(); 
+								Scene scene = new Scene(root);
+								Stage stage = new Stage();
+								stage.setScene(scene);//Cargamos la escena en el stage.
+								
+								menuController.init(usuario, pass, stage, this);//Crear el método init en MenuController y le pasamos los datos
+								stage.show();
+								this.stage.close();
+								
+							}catch(IOException e){
+								e.printStackTrace();
+							}
+							
+						}else{
+							lblError.setText("Contraseña incorrecta");
+							lblError.setVisible(true);
+						}
+					}
+				}
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
         }
     }
 
      
+	 
+	 
 
     /**
      * Metodo para registrarse en la base de datos cuando los datos no existen ya en esta
@@ -203,7 +171,7 @@ public class LoginController {
                 entrenador.setPass(txtPassword.getText());
 
 
-                menuController.init();
+                //menuController.init(usuario, pass, stage, this);
 
                 stage.initModality(Modality.APPLICATION_MODAL);
                 stage.setScene(scene);
@@ -216,10 +184,20 @@ public class LoginController {
             System.out.println("Registro incorrecto.");
         }
     }
-
-
-
+	
+	public void show() {
+		stage.show();
+		lblError.setVisible(false);
+		txtFUser.setText("");//Al salir del menu al Login, se borra el usuario y la contraseña
+		txtPassword.setText("");
+	}
+	
+	public void setStage(Stage primaryStage) {
+		stage = primaryStage;
+		
+	}
 }
+
 
 
 
