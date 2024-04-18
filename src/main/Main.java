@@ -13,12 +13,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //Parent root = FXMLLoader.load(getClass().getResource("vistas/vistaLogin.fxml"));
-		
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("../view(vistaLogin.fxml"));
+        
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/vistaLogin.fxml"));
 		Parent root = loader.load();
 		
-        Scene scene = new Scene(loader.load());
+        Scene scene = new Scene(root);
         primaryStage.setTitle("Hello Pokemon World!");
         primaryStage.setScene(scene);
         
