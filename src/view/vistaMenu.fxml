@@ -11,7 +11,7 @@
    <children>
       <ImageView fx:id="imgMenu" fitHeight="484.0" fitWidth="715.0">
          <image>
-            <Image url="@../imgs/Menu.png" />
+            <Image url="@../../img/fondos/Menu.png" />
          </image>
       </ImageView>
     <Button fx:id="btnTienda" defaultButton="true" layoutX="516.0" layoutY="215.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="TIENDA" />
@@ -27,10 +27,11 @@
     <Button fx:id="btnEnfermeria" defaultButton="true" layoutX="516.0" layoutY="261.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="153.0" text="ENFERMERIA" />
     <Button fx:id="btnCaptura" defaultButton="true" layoutX="58.0" layoutY="261.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="155.0" text="CAPTURA" />
     <Button fx:id="btnEntrenamiento" defaultButton="true" layoutX="58.0" layoutY="166.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="ENTRENAMIENTO" />
-      <Button fx:id="btnSalir" layoutX="85.0" layoutY="403.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="101.0" text="Salir" textFill="#ff3737">
+      <Button fx:id="btnSalir" layoutX="85.0" layoutY="403.0" mnemonicParsing="false" onMousePressed="#salir" prefHeight="26.0" prefWidth="101.0" text="Salir" textFill="#ff3737">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
+      <Label fx:id="lblUsuario" layoutX="42.0" layoutY="76.0" prefHeight="18.0" prefWidth="201.0" text="Label" textFill="WHITE" />
    </children>
 </AnchorPane>
