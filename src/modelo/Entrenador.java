@@ -35,6 +35,16 @@ public class Entrenador {
         this.objeto = new Objeto();
         this.pokedexEntrenador = new Pokedex();
     }
+    
+    /**
+     * Constructor con Nombre y Contraseña
+     * @param nombre
+     * @param pass
+     */
+    public Entrenador(String nombre, String pass) {
+		this.nombre = nombre;
+		this.pass = pass;
+	}
 
     /**
      * Constructor con todos los parametros

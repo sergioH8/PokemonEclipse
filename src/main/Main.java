@@ -27,7 +27,7 @@ public class Main extends Application {
 		
 		primaryStage.show();
 		
-    }//HelloApplication correcto
+    }
 
     public static void main(String[] args) {
         launch(args);

@@ -155,34 +155,7 @@ public class LoginController {
      */
     @FXML
     public void registrarme(ActionEvent event) {
-        LoginCRUD.registroSesion(txtFUser.getText(), txtPassword.getText());
-        if(txtFUser == null && txtPassword == null){
-            try{
-                FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("../vistas/vistaMenu.fxml"));
-                Parent root = fxmlLoader2.load();
-                Scene scene = new Scene(root);
-                Stage stage = new Stage();
-                Stage stageActual = (Stage) btnRegistrar.getScene().getWindow();
-                stageActual.close();
-
-                MenuController menuController = fxmlLoader2.getController();
-                Entrenador entrenador = new Entrenador();
-                entrenador.setNombre(txtFUser.getText());
-                entrenador.setPass(txtPassword.getText());
-
-
-                //menuController.init(usuario, pass, stage, this);
-
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.setScene(scene);
-                stage.showAndWait();
-
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }else{
-            System.out.println("Registro incorrecto.");
-        }
+      
     }
 	
 	public void show() {

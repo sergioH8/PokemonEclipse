@@ -61,7 +61,7 @@ public class MenuController {
     public Label lblPokedolares;
 
 
-    private static Entrenador entrenadorActual;
+    
 
 
     public void init(String usuario, String pass, Stage stage2, LoginController loginController){ //Método con los parametros!!!
@@ -69,7 +69,7 @@ public class MenuController {
 		this.loginController = loginController;
 		this.stage = stage2;
 		//Con estos métodos cogemos la información del usuario y la cargamos en la pantalla principal para poder acceder a ella cuando se necesite.
-		//this.entrenador = new Entrenador(usuario, pass);
+		this.entrenador = new Entrenador(usuario, pass);
 		//cargarEquipo(EQUIPOPRINCIPAL);//Equipo principal, por medio de un método.
 		//cargarEquipo(EQUIPOSECUNDARIO);//Equipo secundario
 		//cargarMochilaEntrenador();//Metodo para cargar los objetos del entrenador
