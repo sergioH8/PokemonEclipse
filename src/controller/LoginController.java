@@ -154,7 +154,7 @@ public class LoginController {
                             System.out.println("Usuario encontrado");
 
                             // Cargar la nueva ventana
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ruta/a/tu/ventana.fxml"));
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/vistaMenu.fxml"));
                             Parent root = loader.load();
                             MenuController menuController = loader.getController();
                             Scene scene = new Scene(root);

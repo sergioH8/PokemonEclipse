@@ -11,7 +11,7 @@ import modelo.Entrenador;
 
 public class MenuController {
 
-	private Entrenador entrenador;
+    private Entrenador entrenador;
 
     private Stage stage;
     private LoginController loginController;
@@ -59,24 +59,15 @@ public class MenuController {
     private static Entrenador entrenadorActual;
 
 
-	public void init() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-
-   /* public void init(){
+    public void init(){
         SingletonEntrenador entrenador = SingletonEntrenador.getInstance(null);
 
         entrenadorActual = entrenador.value;
         System.out.println(entrenadorActual.getNombre());
     }
-*/
-   
 
-	
+    public void init(String usuario, String pass, Stage stage, LoginController loginController) {
+
+
+    }
 }
-
-
