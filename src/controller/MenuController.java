@@ -1,21 +1,26 @@
 package controller;
 
-
+import modelo.Entrenador;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import modelo.Entrenador;
 
 public class MenuController {
-
-    private Entrenador entrenador;
-
-    private Stage stage;
-    private LoginController loginController;
-
+	//Añadir atributos manualmente de Entrenador
+	
+	public static final int EQUIPOPRINCIPAL = 1;
+	public static final int EQUIPOSECUNDARIO = 0;
+	
+	private Entrenador entrenador;
+	private Stage stage;
+	private LoginController loginController; //Controller del Login, porque en el menú hay un boton de "salir" que conecta el menu con el Login
+	//De esta forma, al "salir" no cierra la aplicación, sino que va a la anterior pantalla para cambiar de usuario.
+	
+	
     @FXML
     public ImageView imgMenu;
     @FXML
@@ -50,7 +55,7 @@ public class MenuController {
     public Button btnCasino;
     @FXML
     public Button btnSalir;
-    @FXML
+	@FXML
     public Label lblUsuario;
     @FXML
     public Label lblPokedolares;
@@ -59,15 +64,20 @@ public class MenuController {
     private static Entrenador entrenadorActual;
 
 
-    public void init(){
-        SingletonEntrenador entrenador = SingletonEntrenador.getInstance(null);
-
-        entrenadorActual = entrenador.value;
-        System.out.println(entrenadorActual.getNombre());
+    public void init(String usuario, String pass, Stage stage2, LoginController loginController){ //Método con los parametros!!!
+        lblUsuario.setText(usuario);//Aparece el nombre de usuario en el menú.
+		this.loginController = loginController;
+		this.stage = stage2;
+		//Con estos métodos cogemos la información del usuario y la cargamos en la pantalla principal para poder acceder a ella cuando se necesite.
+		//this.entrenador = new Entrenador(usuario, pass);
+		//cargarEquipo(EQUIPOPRINCIPAL);//Equipo principal, por medio de un método.
+		//cargarEquipo(EQUIPOSECUNDARIO);//Equipo secundario
+		//cargarMochilaEntrenador();//Metodo para cargar los objetos del entrenador
+		
     }
-
-    public void init(String usuario, String pass, Stage stage, LoginController loginController) {
-
-
+	
+	public void salir(MouseEvent event) {
+		loginController.show();//Crear el metodo en el Controller
+		stage.close();
     }
 }
