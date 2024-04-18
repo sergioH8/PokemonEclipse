@@ -2,6 +2,14 @@ package controller;
 
 
 
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import crud.ConexionBD;
 import crud.LoginCRUD;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +27,9 @@ import javafx.stage.Stage;
 import modelo.Entrenador;
 
 public class LoginController {
+	
+	 private Stage stage;
+	 
     @FXML
     public ImageView imgLogin;
     @FXML
@@ -71,8 +82,10 @@ public class LoginController {
 
     /**
      * Metodo para iniciar sesion
+     * @throws SQLException 
      */
-
+/*
+    	
         @FXML
     public void loguearme(ActionEvent event) {
         LoginCRUD.inicioSesion(txtFUser.getText(), txtPassword.getText());
@@ -107,28 +120,66 @@ public class LoginController {
         }
     }
 
-    /*
-    public void loguearme(ActionEvent event) {
+    */
+    public void loguearme(ActionEvent event) throws SQLException {
         Object evt = event.getSource();
 
-        if(txtFUser.getText().isEmpty()){
+        if (txtFUser.getText().isEmpty()) {
             lblError.setText("Error: Inserta el usuario");
             lblError.setVisible(true);
-        }else if(txtPassword.getText().isEmpty()) {
+        } else if (txtPassword.getText().isEmpty()) {
             lblError.setText("Error: Inserta la contraseña");
             lblError.setVisible(true);
-        }else{
+        } else {
             String usuario = txtFUser.getText();
             String pass = txtPassword.getText();
 
-            String sql = "SELECT COUNT(*)" +
-                    " FROM ENTRENADOR" +
-                    " WHERE NOMBRE = ?" +
-                    " AND PASS = ?";
+            String sql = "SELECT PASS FROM ENTRENADOR WHERE NOMBRE = ?";
+
+            try {
+                ConexionBD con = new ConexionBD();
+                Connection conexion = con.getConexion();
+
+                PreparedStatement ps = conexion.prepareStatement(sql);
+                ps.setString(1, usuario);
+
+                ResultSet rs = ps.executeQuery();
+
+                if (!rs.isBeforeFirst()) {
+                    lblError.setText("Usuario no registrado");
+                    lblError.setVisible(true);
+                } else {
+                    while (rs.next()) {
+                        if (rs.getString(1).equals(pass)) {
+                            System.out.println("Usuario encontrado");
+
+                            // Cargar la nueva ventana
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ruta/a/tu/ventana.fxml"));
+                            Parent root = loader.load();
+                            MenuController menuController = loader.getController();
+                            Scene scene = new Scene(root);
+                            Stage stage = new Stage();
+                            stage.setScene(scene); // cargamos la escena nueva en el stage
+
+                            menuController.init();
+                            stage.setScene(scene);
+                            stage.show();
+                            this.stage.close();
+                        } else {
+                            lblError.setText("Contraseña incorrecta");
+                            lblError.setVisible(true);
+                        }
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
-     */
+     
 
     /**
      * Metodo para registrarse en la base de datos cuando los datos no existen ya en esta

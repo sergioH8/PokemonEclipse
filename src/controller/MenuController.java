@@ -6,9 +6,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import modelo.Entrenador;
 
 public class MenuController {
+
+	private Entrenador entrenador;
+
+    private Stage stage;
+    private LoginController loginController;
+
     @FXML
     public ImageView imgMenu;
     @FXML
@@ -43,17 +50,33 @@ public class MenuController {
     public Button btnCasino;
     @FXML
     public Button btnSalir;
+    @FXML
+    public Label lblUsuario;
+    @FXML
+    public Label lblPokedolares;
 
 
     private static Entrenador entrenadorActual;
 
 
-    public void init(){
+	public void init() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+   /* public void init(){
         SingletonEntrenador entrenador = SingletonEntrenador.getInstance(null);
 
         entrenadorActual = entrenador.value;
         System.out.println(entrenadorActual.getNombre());
     }
+*/
+   
+
+	
 }
 
 
