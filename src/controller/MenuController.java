@@ -57,8 +57,7 @@ public class MenuController {
     public Button btnSalir;
 	@FXML
     public Label lblUsuario;
-    @FXML
-    public Label lblPokedolares;
+    
 
 
     
