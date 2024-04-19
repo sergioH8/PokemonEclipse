@@ -14,11 +14,11 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="665.0" prefWidth="954.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CombateController">
+<AnchorPane prefHeight="603.0" prefWidth="902.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CombateController">
    <children>
       <ImageView fx:id="imgCombate" fitHeight="665.0" fitWidth="953.0" layoutY="-1.0">
          <image>
-            <Image url="@../imgs/ringCombate2.jpeg" />
+            <Image url="@../../img/fondos/ringCombate2.jpeg" />
          </image>
       </ImageView>
       <ImageView fx:id="imgPokemon" fitHeight="124.0" fitWidth="150.0" layoutX="248.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true" />

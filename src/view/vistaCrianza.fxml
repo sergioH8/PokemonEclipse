@@ -11,7 +11,7 @@
    <children>
       <ImageView fx:id="imgCrianza" fitHeight="479.0" fitWidth="600.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../imgs/granjaCrianza2.jpeg" />
+            <Image url="@../../img/fondos/granjaCrianza2.jpeg" />
          </image></ImageView>
       <Button fx:id="btnSeleccionarPokemon" cache="true" cacheHint="ROTATE" layoutX="234.0" layoutY="89.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="130.0" text="Finalizar Crianza">
          <font>
@@ -31,9 +31,9 @@
       <ImageView fx:id="imgHembra" fitHeight="150.0" fitWidth="100.0" layoutX="445.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="btnSelectMacho" layoutX="74.0" layoutY="63.0" mnemonicParsing="false" text="Seleccionar" />
       <Button fx:id="btnSelectHembra" layoutX="457.0" layoutY="63.0" mnemonicParsing="false" text="Seleccionar" />
-      <ImageView fx:id="imgHuevo" fitHeight="103.0" fitWidth="92.0" layoutX="258.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgHuevo" fitHeight="103.0" fitWidth="92.0" layoutX="258.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../imgs/pokemonegg.png" />
+            <Image url="@../../img/fondos/pokemonegg.png" />
          </image>
       </ImageView>
       <Button fx:id="btnAbrirHuevo" layoutX="261.0" layoutY="347.0" mnemonicParsing="false" text="Abrir huevo" />
