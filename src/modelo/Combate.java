@@ -288,10 +288,7 @@ public class Combate {
     }
 
 
-    /**
-     * Ejecuta el movimiento del entrenador Rival.
-     *
-     */
+
     public void ataqueRival() {
    
         int indiceMovimientoAleatorio = (int) (Math.random() * Pokemon.getMovimientos().length);
@@ -306,10 +303,6 @@ public class Combate {
         System.out.println("El Pokémon rival " + pokemonEntrenadorRival.getNombre() + " ha usado " + movimientoSeleccionado.getNombre());
     }
 
-    /**
-     * Ejecuta el movimiento del Jugador.
-     *
-     */
     public void ataquePropio(int indiceMovimiento) {
       
         if (indiceMovimiento < 0 || indiceMovimiento >= Pokemon.getMovimientos().length) {
