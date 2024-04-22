@@ -293,16 +293,16 @@ public class Combate {
      *
      */
     public void ataqueRival() {
-        // Suponiendo que el rival selecciona un movimiento aleatorio
+   
         int indiceMovimientoAleatorio = (int) (Math.random() * Pokemon.getMovimientos().length);
 
-        // Obtener el movimiento seleccionado por el rival
+        
         Movimiento movimientoSeleccionado = Pokemon.getMovimientos()[indiceMovimientoAleatorio];
 
-        // Ejecutar el movimiento del rival
+   
         movimientoSeleccionado.ejecutar(pokemonEntrenadorRival, pokemonEntrenador);
 
-        // Imprimir el mensaje de que el Pokémon rival ha usado el movimiento
+       
         System.out.println("El Pokémon rival " + pokemonEntrenadorRival.getNombre() + " ha usado " + movimientoSeleccionado.getNombre());
     }
 
@@ -311,19 +311,19 @@ public class Combate {
      *
      */
     public void ataquePropio(int indiceMovimiento) {
-        // Verificar si el índice del movimiento seleccionado es válido
+      
         if (indiceMovimiento < 0 || indiceMovimiento >= Pokemon.getMovimientos().length) {
             System.out.println("Índice de movimiento no válido.");
             return;
         }
 
-        // Obtener el movimiento seleccionado
+       
         Movimiento movimientoSeleccionado = Pokemon.getMovimientos()[indiceMovimiento];
 
-        // Ejecutar el movimiento del jugador
+      
         movimientoSeleccionado.ejecutar(pokemonEntrenador, pokemonEntrenadorRival);
 
-        // Imprimir el mensaje de que el Pokémon del jugador ha usado el movimiento
+     
         System.out.println("El Pokémon " + pokemonEntrenador.getNombre() + " ha usado " + movimientoSeleccionado.getNombre());
     }
 

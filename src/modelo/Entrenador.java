@@ -19,7 +19,7 @@ public class Entrenador {
     private int idEntrenador;
     private String nombre;
     private String pass;
-    private Objeto objeto;
+    private LinkedList <Objeto> objetos;
     public Pokedex pokedexEntrenador;
 
     /**
@@ -32,7 +32,7 @@ public class Entrenador {
         this.idEntrenador = 0;
         this.nombre = " ";
         this.pass = " ";
-        this.objeto = new Objeto();
+        this.objetos = null;
         this.pokedexEntrenador = new Pokedex();
     }
     
@@ -56,17 +56,18 @@ public class Entrenador {
      * @param pass
      * @param objeto
      * @param pokedexEntrenador
+     * @param objetos 
      */
     public Entrenador(int pokedolares, LinkedList<Pokemon> equipoPokemon,
                       LinkedList<Pokemon> cajaPokemon, int idEntrenador, String nombre,
-                      String pass, Objeto objeto, Pokedex pokedexEntrenador) {
+                      String pass, LinkedList<Objeto> objetos, Pokedex pokedexEntrenador) {
         this.pokedolares = pokedolares;
         this.equipoPokemon = equipoPokemon;
         this.cajaPokemon = cajaPokemon;
         this.idEntrenador = idEntrenador;
         this.nombre = nombre;
         this.pass = pass;
-        this.objeto = objeto;
+        this.objetos = objetos;
         this.pokedexEntrenador = pokedexEntrenador;
     }
 
@@ -81,159 +82,83 @@ public class Entrenador {
         this.idEntrenador = e.idEntrenador;
         this.nombre = e.nombre;
         this.pass = e.pass;
-        this.objeto = e.objeto;
+        this.objetos = e.objetos;
         this.pokedexEntrenador = e.pokedexEntrenador;
     }
 
-    ;
 
-    //
-    // Methods
-    //
-
-
-    //
-    // Accessor methods: GETTER Y SETTER
-    //
-
-    /**
-     * Set the value of pokedolares
-     *
-     * @param pokedolares the new value of pokedolares
-     */
     public void setPokedolares(int pokedolares) {
         this.pokedolares = pokedolares;
     }
 
-    /**
-     * Get the value of pokedolares
-     *
-     * @return the value of pokedolares
-     */
+  
     public int getPokedolares() {
         return pokedolares;
     }
 
-    /**
-     * Set the value of equipoPokemon
-     *
-     * @param equipoPokemon the new value of equipoPokemon
-     */
+  
     public void setEquipoPokemon(LinkedList<Pokemon> equipoPokemon) {
         this.equipoPokemon = equipoPokemon;
     }
 
-    /**
-     * Get the value of equipoPokemon
-     *
-     * @return the value of equipoPokemon
-     */
+  
     public LinkedList<Pokemon> getEquipoPokemon() {
         return equipoPokemon;
     }
 
-    /**
-     * Set the value of cajaPokemon
-     *
-     * @param cajaPokemon the new value of cajaPokemon
-     */
+   
     public void setCajaPokemon(LinkedList<Pokemon> cajaPokemon) {
         this.cajaPokemon = cajaPokemon;
     }
 
-    /**
-     * Get the value of cajaPokemon
-     *
-     * @return the value of cajaPokemon
-     */
+
     public LinkedList<Pokemon> getCajaPokemon() {
         return cajaPokemon;
     }
 
-    /**
-     * Set the value of idEntrenador
-     *
-     * @param idEntrenador the new value of nombre
-     */
+
     public void setIdEntrenador(int idEntrenador) {
         this.idEntrenador = idEntrenador;
     }
 
-    /**
-     * Get the value of idEntrenador
-     *
-     * @return the value of idEntrenador
-     */
+ 
     public int getIdEntrenador() {
         return idEntrenador;
     }
-    /**
-     * Set the value of nombre
-     *
-     * @param nombre the new value of nombre
-     */
+   
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    /**
-     * Get the value of nombre
-     *
-     * @return the value of nombre
-     */
+   
     public String getNombre() {
         return nombre;
     }
 
-    /**
-     * Set the value of pass
-     *
-     * @param pass the new value of pass
-     */
+
     public void setPass(String pass) {
         this.pass = pass;
     }
 
-    /**
-     * Get the value of pass
-     *
-     * @return the value of pass
-     */
+   
     public String getpass() {
         return pass;
     }
-    /**
-     * Set the value of objeto
-     *
-     * @param objeto the new value of objeto
-     */
-    public void setObjeto(Objeto objeto) {
-        this.objeto = objeto;
-    }
 
-    /**
-     * Get the value of objeto
-     *
-     * @return the value of objeto
-     */
-    public Objeto getObjeto() {
-        return objeto;
-    }
+    public LinkedList <Objeto> getObjetos() {
+		return objetos;
+	}
 
-    /**
-     * Set the value of m_tiene
-     *
-     * @param pokedexEntrenador the new value of m_tiene
-     */
+	public void setObjetos(LinkedList <Objeto> objetos) {
+		this.objetos = objetos;
+	}
+
+ 
     public void setTiene(Pokedex pokedexEntrenador) {
         this.pokedexEntrenador = pokedexEntrenador;
     }
 
-    /**
-     * Get the value of m_tiene
-     *
-     * @return the value of m_tiene
-     */
+
     public Pokedex getTiene() {
         return pokedexEntrenador;
     }
@@ -248,29 +173,34 @@ public class Entrenador {
      */
     public boolean capturarPokemon() {
         int numeroAleatorio = (int) (Math.random() * 3 + 1);
-        if (numeroAleatorio == 1) {
+        if (numeroAleatorio == 1 || numeroAleatorio == 2) {
             return true;
         } else {
             return false;
         }
     }
 
+	public static void atacar() {
+		
+		
+	}
 
-    public static void atacar() {
+	public static void usarObjeto() {
+		
+		
+	}
 
-    }
+	public static void cambiarPokemon() {
+		
+		
+	}
 
-    public static void usarObjeto() {
-
-    }
-
-    public static void retirarse() {
-
-    }
+	public static void retirarse() {
+	
+		
+	}
 
 
-    public static void cambiarPokemon() {
 
-    }
-
+	
 }

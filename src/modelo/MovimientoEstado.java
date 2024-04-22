@@ -19,10 +19,7 @@ public class MovimientoEstado extends Movimiento {
 
     }
 
-    @Override
-    public boolean calcularProbabilidad() {
-        return false;
-    }
+   
 
 
 
