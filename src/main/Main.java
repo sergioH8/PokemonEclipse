@@ -16,7 +16,7 @@ public class Main extends Application {
         
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/vistaLogin.fxml"));
 		Parent root = loader.load();
-		
+
         Scene scene = new Scene(root);
         primaryStage.setTitle("Hello Pokemon World!");
         primaryStage.setScene(scene);
