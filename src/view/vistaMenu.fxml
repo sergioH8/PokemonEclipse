@@ -14,19 +14,19 @@
             <Image url="@../../img/fondos/Menu.png" />
          </image>
       </ImageView>
-    <Button fx:id="btnTienda" defaultButton="true" layoutX="516.0" layoutY="215.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="TIENDA" />
+    <Button fx:id="btnTienda" defaultButton="true" layoutX="516.0" layoutY="215.0" mnemonicParsing="false" onMouseClicked="#irTienda" prefHeight="26.0" prefWidth="154.0" text="TIENDA" />
       <Label fx:id="lblBienvenida" layoutX="176.0" layoutY="30.0" opacity="0.9" prefHeight="31.0" prefWidth="391.0" style="-fx-background-color: F8FAD6;" text="BIENVENIDOS AL MENÚ POKEMANÍACOS" textAlignment="CENTER">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Button fx:id="btnEquipo" defaultButton="true" layoutX="58.0" layoutY="215.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="155.0" text="EQUIPO" />
-    <Button fx:id="btnCasino" defaultButton="true" layoutX="516.0" layoutY="166.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="CASINO" />
-      <Button fx:id="btnIrCombate" defaultButton="true" layoutX="58.0" layoutY="119.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="156.0" text="COMBATE" />
-    <Button fx:id="btnIrCrianza" defaultButton="true" layoutX="516.0" layoutY="119.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="CRIANZA" />
-    <Button fx:id="btnEnfermeria" defaultButton="true" layoutX="516.0" layoutY="261.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="153.0" text="ENFERMERIA" />
-    <Button fx:id="btnCaptura" defaultButton="true" layoutX="58.0" layoutY="261.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="155.0" text="CAPTURA" />
-    <Button fx:id="btnEntrenamiento" defaultButton="true" layoutX="58.0" layoutY="166.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="ENTRENAMIENTO" />
+      <Button fx:id="btnEquipo" defaultButton="true" layoutX="58.0" layoutY="215.0" mnemonicParsing="false" onMouseClicked="#irEquipo" prefHeight="26.0" prefWidth="155.0" text="EQUIPO" />
+    <Button fx:id="btnCasino" defaultButton="true" layoutX="516.0" layoutY="166.0" mnemonicParsing="false" onMouseClicked="#irCasino" prefHeight="26.0" prefWidth="154.0" text="CASINO" />
+      <Button fx:id="btnIrCombate" defaultButton="true" layoutX="58.0" layoutY="119.0" mnemonicParsing="false" onMouseClicked="#irCombate" prefHeight="26.0" prefWidth="156.0" text="COMBATE" />
+    <Button fx:id="btnIrCrianza" defaultButton="true" layoutX="516.0" layoutY="119.0" mnemonicParsing="false" onMouseClicked="#irCrianza" prefHeight="26.0" prefWidth="154.0" text="CRIANZA" />
+    <Button fx:id="btnEnfermeria" defaultButton="true" layoutX="516.0" layoutY="261.0" mnemonicParsing="false" onMouseClicked="#irEnfermeria" prefHeight="26.0" prefWidth="153.0" text="ENFERMERIA" />
+    <Button fx:id="btnCaptura" defaultButton="true" layoutX="58.0" layoutY="261.0" mnemonicParsing="false" onMouseClicked="#irCaptura" prefHeight="26.0" prefWidth="155.0" text="CAPTURA" />
+    <Button fx:id="btnEntrenamiento" defaultButton="true" layoutX="58.0" layoutY="166.0" mnemonicParsing="false" onMouseClicked="#irEntrenamiento" prefHeight="26.0" prefWidth="154.0" text="ENTRENAMIENTO" />
       <Button fx:id="btnSalir" layoutX="85.0" layoutY="403.0" mnemonicParsing="false" onMousePressed="#salir" prefHeight="26.0" prefWidth="101.0" text="Salir" textFill="#ff3737">
          <font>
             <Font name="System Bold" size="12.0" />

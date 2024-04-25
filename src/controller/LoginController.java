@@ -129,8 +129,8 @@ public class LoginController {
 								Scene scene = new Scene(root);
 								Stage stage = new Stage();
 								stage.setScene(scene);//Cargamos la escena en el stage.
-								
-								menuController.init(usuario, pass, stage, this);//Crear el método init en MenuController y le pasamos los datos
+								Entrenador entrenador = new Entrenador();
+								menuController.init(entrenador, stage, this);//Crear el método init en MenuController y le pasamos los datos
 								stage.show();
 								this.stage.close();
 								

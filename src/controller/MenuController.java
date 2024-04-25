@@ -2,12 +2,17 @@ package controller;
 
 import modelo.Entrenador;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
 import crud.ConexionBD;
 import crud.PokemonCRUD;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Label;
@@ -79,16 +84,14 @@ public class MenuController {
 		
 		Connection conexion = con.getConexion();
 		
-		try {
-			PokemonCRUD.obtenerPokemon(conexion, this.entrenador, EQUIPOPRINCIPAL);
-			PokemonCRUD.obtenerPokemon(conexion, this.entrenador, EQUIPOSECUNDARIO);
-			
-		}catch(Exception e) {
-			e.setStackTrace(null);
-		}
-		//cargarEquipo(EQUIPOPRINCIPAL);//Equipo principal, por medio de un método.
-		//cargarEquipo(EQUIPOSECUNDARIO);//Equipo secundario
-		//cargarMochilaEntrenador();//Metodo para cargar los objetos del entrenador
+//		try {
+//			PokemonCRUD.obtenerPokemon(conexion, this.entrenador, EQUIPOPRINCIPAL);
+//			PokemonCRUD.obtenerPokemon(conexion, this.entrenador, EQUIPOSECUNDARIO);
+//			
+//		}catch(Exception e) {
+//			e.setStackTrace(null);
+//		}
+
 		
     }
 	
@@ -100,4 +103,49 @@ public class MenuController {
 	public static void show() {
 		stage.show();
 	}
+	
+	
+	 @FXML
+	    void irCaptura(MouseEvent event) {
+
+	    }
+
+	    @FXML
+	    void irCasino(MouseEvent event) {
+
+	    }
+
+	    @FXML
+	    void irCombate(MouseEvent event) {
+
+	    }
+
+	    @FXML
+	    void irCrianza(MouseEvent event) {
+
+	    }
+
+	    @FXML
+	    void irEnfermeria(MouseEvent event) {
+
+	    }
+
+	    @FXML
+	    void irEntrenamiento(MouseEvent event) {
+
+	    }
+
+	    @FXML
+	    void irEquipo(MouseEvent event) {
+
+	    }
+
+	    @FXML
+	    void irTienda(MouseEvent event) {
+
+	    }
+
+
+	
+	
 }
