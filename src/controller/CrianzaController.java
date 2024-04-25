@@ -7,12 +7,24 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import modelo.Entrenador;
+import modelo.Pokemon;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.Random;
+
+import crud.ConexionBD;
+import crud.PokemonCRUD;
 
 public class CrianzaController {
+	
+	private Stage stage;
     @FXML
     public Button btnAtras;
     @FXML
@@ -45,7 +57,7 @@ public class CrianzaController {
             Stage nuevoEscenario = (Stage) btnAtras.getScene().getWindow();
             nuevoEscenario.close();
 
-            FXMLLoader carga = new FXMLLoader(getClass().getResource("src/main/resources/com/example/proyectopokemonlatigocepa/vistas/vistaMenu.fxml"));
+            FXMLLoader carga = new FXMLLoader(getClass().getResource("../../vistas/vistaMenu.fxml"));
             Parent raiz = carga.load();
             Scene escena = new Scene(raiz);
             Stage escenarioActual = new Stage();
@@ -57,5 +69,25 @@ public class CrianzaController {
         }catch(IOException e){
             e.printStackTrace();
         }
+    }
+
+
+	public void init(Entrenador entrenador, Stage stage, MenuController menuController) {
+		this.stage = stage;
+        try {
+            ConexionBD conexionBD = new ConexionBD();
+            Connection conexion = conexionBD.getConexion();
+            LinkedList<Pokemon> pokedex = PokemonCRUD.obtenerPokedex(conexion); // Obtener todos los Pokémones de la Pokédex
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejar o registrar la excepción adecuadamente
+        }
+		
+	}
+	
+    @FXML
+    void salirMenu(MouseEvent event) {
+    	MenuController.show();
+    	stage.close();
     }
 }

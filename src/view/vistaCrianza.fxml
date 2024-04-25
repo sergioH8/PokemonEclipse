@@ -38,6 +38,6 @@
       </ImageView>
       <Button fx:id="btnAbrirHuevo" layoutX="261.0" layoutY="347.0" mnemonicParsing="false" text="Abrir huevo" />
       <ImageView fx:id="imgPokemonNuevo" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="btnAtras" layoutX="18.0" layoutY="347.0" mnemonicParsing="false" text="Atrás" />
+      <Button fx:id="btnAtras" layoutX="18.0" layoutY="347.0" mnemonicParsing="false" onMouseClicked="#salirMenu" text="Atrás" />
    </children>
 </AnchorPane>

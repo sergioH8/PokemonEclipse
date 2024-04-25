@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -23,9 +24,9 @@
       </ImageView>
       <ImageView fx:id="imgPokemon" fitHeight="124.0" fitWidth="150.0" layoutX="248.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imgRival" fitHeight="124.0" fitWidth="150.0" layoutX="534.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true" />
-      <ProgressBar fx:id="pbarPokemon" layoutX="198.0" layoutY="143.0" prefWidth="200.0" progress="0.0" />
-      <ProgressBar fx:id="pbarRival" layoutX="534.0" layoutY="143.0" prefHeight="18.0" prefWidth="225.0" progress="0.0" />
-      <RadioButton fx:id="rbtnPokemon" layoutX="29.0" layoutY="136.0" mnemonicParsing="false" text="INTIMIDAR">
+      <ProgressBar fx:id="pbarPokemon" layoutX="78.0" layoutY="69.0" prefWidth="200.0" progress="0.0" />
+      <ProgressBar fx:id="pbarRival" layoutX="663.0" layoutY="69.0" prefHeight="18.0" prefWidth="225.0" progress="0.0" />
+      <RadioButton fx:id="rbtnPokemon" layoutX="104.0" layoutY="104.0" mnemonicParsing="false" text="INTIMIDAR">
          <font>
             <Font name="System Bold Italic" size="21.0" />
          </font>
@@ -46,8 +47,8 @@
             </LinearGradient>
          </textFill>
       </RadioButton>
-      <TextArea fx:id="txtaCombate" layoutX="466.0" layoutY="551.0" opacity="0.8" prefHeight="104.0" prefWidth="423.0" />
-      <MenuBar fx:id="mbarMenu" focusTraversable="false" layoutX="132.0" layoutY="455.0" opacity="0.8">
+      <TextArea fx:id="txtaCombate" layoutX="501.0" layoutY="532.0" opacity="0.8" prefHeight="104.0" prefWidth="423.0" />
+      <MenuBar fx:id="mbarMenu" focusTraversable="false" layoutX="78.0" layoutY="419.0" opacity="0.8">
         <menus>
           <Menu fx:id="mnAtaques" mnemonicParsing="false" text="ATAQUES">
             <items>
@@ -74,7 +75,7 @@
             </Menu>
         </menus>
       </MenuBar>
-      <RadioButton fx:id="rbtnRival" layoutX="789.0" layoutY="136.0" mnemonicParsing="false" text="INTIMIDAR">
+      <RadioButton fx:id="rbtnRival" layoutX="701.0" layoutY="104.0" mnemonicParsing="false" text="INTIMIDAR">
          <font>
             <Font name="System Bold Italic" size="21.0" />
          </font>
@@ -95,5 +96,6 @@
             </LinearGradient>
          </textFill>
       </RadioButton>
+      <Button fx:id="btnSalirMenu" layoutX="52.0" layoutY="596.0" mnemonicParsing="false" onMouseClicked="#salirMenu" text="Salir" />
    </children>
 </AnchorPane>

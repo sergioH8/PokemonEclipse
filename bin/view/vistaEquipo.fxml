@@ -64,7 +64,7 @@
             </TableView>
             <Button fx:id="btnMoverACaja" layoutX="320.0" layoutY="334.0" mnemonicParsing="false" text="Mover a Caja" />
             <Button fx:id="btnMoverAEquipo" layoutX="500.0" layoutY="334.0" mnemonicParsing="false" text="Mover a Equipo" />
-            <Button fx:id="btnAtras" layoutX="38.0" layoutY="347.0" mnemonicParsing="false" text="Atrás" />
+            <Button fx:id="btnAtras" layoutX="38.0" layoutY="347.0" mnemonicParsing="false" onMouseClicked="#salirMenu" text="Atrás" />
       </children>
     </AnchorPane>
   </children>

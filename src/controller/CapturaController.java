@@ -39,7 +39,7 @@ public class CapturaController {
     
     		MenuController.show();
     		stage.close();
-        }
+    }
 
     
 

@@ -127,32 +127,97 @@ public class MenuController {
 
 	@FXML
 	void irCombate(MouseEvent event) {
-
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/vistaCombate.fxml"));
+			Parent root = loader.load();
+			CombateController combateController = new CombateController();
+			combateController = loader.getController();
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			combateController.init(entrenador, stage, this);
+			stage.show();
+			MenuController.stage.close(); 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML
 	void irCrianza(MouseEvent event) {
-
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/vistaCrianza.fxml"));
+			Parent root = loader.load();
+			CrianzaController crianzaController = new CrianzaController();
+			crianzaController = loader.getController();
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			crianzaController.init(entrenador, stage, this);
+			stage.show();
+			MenuController.stage.close(); 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML
 	void irEnfermeria(MouseEvent event) {
-
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/vistaCentroPokemon.fxml"));
+			Parent root = loader.load();
+			CentroController centroController = new CentroController();
+			centroController = loader.getController();
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			centroController.init(entrenador, stage, this);
+			stage.show();
+			MenuController.stage.close(); 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML
 	void irEntrenamiento(MouseEvent event) {
-
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/vistaEntrenamiento.fxml"));
+			Parent root = loader.load();
+			EntrenamientoController entrenamientoController = new EntrenamientoController();
+			entrenamientoController = loader.getController();
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			entrenamientoController.init(entrenador, stage, this);
+			stage.show();
+			MenuController.stage.close(); 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML
 	void irEquipo(MouseEvent event) {
-
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/vistaEquipo.fxml"));
+			Parent root = loader.load();
+			EquipoController equipoController = new EquipoController();
+			equipoController = loader.getController();
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			equipoController.init(entrenador, stage, this);
+			stage.show();
+			MenuController.stage.close(); 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML
 	void irTienda(MouseEvent event) {
-
+		
 	}
 
 }
