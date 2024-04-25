@@ -16,7 +16,7 @@ public class MenuController {
 	public static final int EQUIPOSECUNDARIO = 0;
 	
 	private Entrenador entrenador;
-	private Stage stage;
+	private static Stage stage;
 	private LoginController loginController; //Controller del Login, porque en el menú hay un boton de "salir" que conecta el menu con el Login
 	//De esta forma, al "salir" no cierra la aplicación, sino que va a la anterior pantalla para cambiar de usuario.
 	
@@ -79,4 +79,8 @@ public class MenuController {
 		loginController.show();//Crear el metodo en el Controller
 		stage.close();
     }
+
+	public static void show() {
+		stage.show();
+	}
 }

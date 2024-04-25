@@ -19,6 +19,6 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnVolverMenu" layoutX="21.0" layoutY="360.0" mnemonicParsing="false" text="Volver al Menu" textFill="#c14848" />
+      <Button fx:id="btnVolverMenu" layoutX="21.0" layoutY="360.0" mnemonicParsing="false" onAction="#salirMenu" text="Volver al Menu" textFill="#c14848" />
    </children>
 </AnchorPane>

@@ -1,6 +1,8 @@
 package controller;
 
 
+import java.io.File;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,6 +22,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modelo.Entrenador;
@@ -27,6 +31,7 @@ import modelo.Entrenador;
 public class LoginController {
 	
 	private Stage stage;
+	private MediaPlayer mediaPlayer;
 	
     @FXML
     public ImageView imgLogin;
@@ -169,6 +174,20 @@ public class LoginController {
 		stage = primaryStage;
 		
 	}
+	
+	//Se puede poner un boton para quitar el sonido o ponerlo en la pantalla de inicio
+//	public void activarDesactivarSonido(MouseEvent event) {
+//		
+//	}
+	
+//	public void initialize() { //Metodo para poner el sonido en la pantalla de Login
+//        String sonido = "../../inicio.wav";
+//               
+//        Media sound = new Media(new File(sonido).toURI().toString());
+//        mediaPlayer = new MediaPlayer(sound);
+//        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);//Cuando acabe el audio volvera a empezar
+//        mediaPlayer.play();
+//	}
 }
 
 
