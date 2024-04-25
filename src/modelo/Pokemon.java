@@ -3,6 +3,8 @@ package modelo;
 import java.util.LinkedList;
 import java.util.Random;
 
+import javafx.scene.image.Image;
+
 public class Pokemon {
 
     public final int EXPERIENCIA_SUBIR_NIVEL = 10;
@@ -22,7 +24,6 @@ public class Pokemon {
     private int defensa;
     private int defensaEspecial;
     private int velocidad;
-
     private int fertilidad;
     private boolean sexo;
     static Movimiento[] movimientos = new Movimiento[4];
@@ -330,7 +331,7 @@ public class Pokemon {
         this.numPokedex = numPokedex;
     }
 
-    public String getImgFrontal() {
+    public  String getImgFrontal() {
         return imgFrontal;
     }
 
@@ -429,6 +430,7 @@ public class Pokemon {
         return false;
     }
 
+	
 
 
 }

@@ -66,4 +66,24 @@ public class PokemonCRUD {
 		}
 		
 	}
+
+	public static LinkedList<Pokemon> obtenerPokedex(Connection conexion) throws SQLException {
+        LinkedList<Pokemon> pokedex = new LinkedList<>();
+
+        String sql = "SELECT NUM_POKEDEX, NOM_POKEMON, TIPO1, TIPO2, IMAGEN FROM POKEDEX";
+        PreparedStatement ps = conexion.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            Pokemon pokemon = new Pokemon();
+            pokemon.setNumPokedex(rs.getInt("NUM_POKEDEX"));
+            pokemon.setNombre(rs.getString("NOMBRE"));
+            pokemon.setTipoPrimario(Tipo.convertirTipoDesdeString(rs.getString("TIPO1")));
+            pokemon.setTipoSecundario(Tipo.convertirTipoDesdeString(rs.getString("TIPO2")));          
+            pokemon.setImgFrontal(rs.getString("img_front"));
+            pokedex.add(pokemon);
+        }
+
+        return pokedex;
+    }
 }
