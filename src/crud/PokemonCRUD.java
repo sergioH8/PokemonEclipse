@@ -8,7 +8,7 @@ import modelo.Pokemon;
 
 public class PokemonCRUD {
 
-	public static void obtenerPokemon() {
+	public static void obtenerPokemon(Conexion conexion, Entrenador ent, Equipo equipo) {
 		
 		PreparedStatement ps = conexion.prepareStatement(sql);
 		ps.setInt(1, entrenador.getIdEntrenador());
@@ -21,10 +21,9 @@ public class PokemonCRUD {
 			poke = new Pokemon();
 			poke.setIdPokemon(rs.getInt(1));
 			poke.setNombre(rs.getString(3));
-			
+			//Poner todos los atributos de la sentencia sql que se necesitan
 			listadoPokemon.add(poke);
-//			entrenador.setIdEntrenador(rs.getInt(1));
-//			entrenador.setPokedollares(rs.getInt(2));
+
 			
 		}
 		

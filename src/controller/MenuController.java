@@ -1,6 +1,11 @@
 package controller;
 
 import modelo.Entrenador;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import crud.ConexionBD;
 import crud.PokemonCRUD;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -64,19 +69,22 @@ public class MenuController {
     
 
 
-    public void init(Entrenador ent, Stage stage2, LoginController loginController){ //Método con los parametros!!!
+    public void init(Entrenador ent, Stage stage2, LoginController loginController) throws SQLException{ //Método con los parametros!!!
         lblUsuario.setText(ent.getNombre());//Aparece el nombre de usuario en el menú.
 		this.loginController = loginController;
 		this.stage = stage2;
 		//Con estos métodos cogemos la información del usuario y la cargamos en la pantalla principal para poder acceder a ella cuando se necesite.
 		this.entrenador = ent;
-		DataBaseConnection con = new DataBaseCOnnection();
+		ConexionBD con = new ConexionBD();
 		
-		Connection conexion = con.getConnection();
+		Connection conexion = con.getConexion();
 		
 		try {
-			PokemonCRUD.obtenerPokemon();
+			PokemonCRUD.obtenerPokemon(conexion, this.entrenador, EQUIPOPRINCIPAL);
+			PokemonCRUD.obtenerPokemon(conexion, this.entrenador, EQUIPOSECUNDARIO);
 			
+		}catch(Exception e) {
+			e.setStackTrace(null);
 		}
 		//cargarEquipo(EQUIPOPRINCIPAL);//Equipo principal, por medio de un método.
 		//cargarEquipo(EQUIPOSECUNDARIO);//Equipo secundario
