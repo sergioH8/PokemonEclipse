@@ -6,7 +6,9 @@ import java.util.Random;
 public class Pokemon {
 
     public final int EXPERIENCIA_SUBIR_NIVEL = 10;
-
+	public static final int EQUIPOPRINCIPAL = 1;
+	public static final int EQUIPOSECUNDARIO = 0;
+	
     private int idPokemon;
     private int numPokedex;
     private String nombre;

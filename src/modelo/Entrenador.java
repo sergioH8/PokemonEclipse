@@ -13,8 +13,8 @@ public class Entrenador {
     //
 
     private int pokedolares;
-    private LinkedList<Pokemon> equipoPokemon;  //Caja0 para metodos
-    private LinkedList<Pokemon> cajaPokemon;    //Caja1 para metodos
+    private LinkedList<Pokemon> equipoPokemon;  //Caja1 para metodos
+    private LinkedList<Pokemon> cajaPokemon;    //Caja0 para metodos
 
     private int idEntrenador;
     private String nombre;
