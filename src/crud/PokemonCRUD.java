@@ -16,7 +16,7 @@ public class PokemonCRUD {
 		String sql = "SELECT 	PK.ID_POKEMON,\r\n"
 				+ "		PX.NUM_POKEDEX,\r\n"
 				+ "		PX.NOMBRE,\r\n"
-				+ "		PX.TIPO1,\r\n"
+				+ "		PX.TIPO,\r\n"
 				+ "		PX.TIPO2,\r\n"
 				+ "		PX.IMG_FRONT,\r\n"
 				+ "		PX.SONIDO,\r\n"
@@ -70,7 +70,7 @@ public class PokemonCRUD {
 	public static LinkedList<Pokemon> obtenerPokedex(Connection conexion) throws SQLException {
         LinkedList<Pokemon> pokedex = new LinkedList<>();
 
-        String sql = "SELECT NUM_POKEDEX, NOM_POKEMON, TIPO1, TIPO2, IMAGEN FROM POKEDEX";
+        String sql = "SELECT NUM_POKEDEX, NOMBRE, TIPO, TIPO2, IMG_FRONT FROM  POKEDEX";
         PreparedStatement ps = conexion.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
 
@@ -78,7 +78,7 @@ public class PokemonCRUD {
             Pokemon pokemon = new Pokemon();
             pokemon.setNumPokedex(rs.getInt("NUM_POKEDEX"));
             pokemon.setNombre(rs.getString("NOMBRE"));
-            pokemon.setTipoPrimario(Tipo.convertirTipoDesdeString(rs.getString("TIPO1")));
+            pokemon.setTipoPrimario(Tipo.convertirTipoDesdeString(rs.getString("TIPO")));
             pokemon.setTipoSecundario(Tipo.convertirTipoDesdeString(rs.getString("TIPO2")));          
             pokemon.setImgFrontal(rs.getString("img_front"));
             pokedex.add(pokemon);

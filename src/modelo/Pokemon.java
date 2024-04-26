@@ -12,7 +12,7 @@ public class Pokemon {
 	public static final int EQUIPOSECUNDARIO = 0;
 	
     private int idPokemon;
-    private int numPokedex;
+    private int num_Pokedex;
     private String nombre;
     private String mote;
     private int nivel;
@@ -42,7 +42,7 @@ public class Pokemon {
     public Pokemon() {
         super();
         this.idPokemon = 0;
-        this.numPokedex = 0;
+        this.num_Pokedex = 0;
         this.nombre = "";
         this.mote = "";
         this.nivel = 1;
@@ -79,7 +79,7 @@ public class Pokemon {
      */
     public Pokemon(int numPokedex, String nombre, Tipo tipo1, Tipo tipo2,
                    int nivelEvolucion, String imgFrontal, String imgTrasera) {
-        this.numPokedex = numPokedex;
+        this.num_Pokedex = numPokedex;
         this.nombre = nombre;
         this.tipo1 = tipo1;
         this.tipo2 = tipo2;
@@ -94,7 +94,7 @@ public class Pokemon {
      */
     public Pokemon(Pokemon p) {
         this.idPokemon = p.idPokemon;
-        this.numPokedex = p.numPokedex;
+        this.num_Pokedex = p.num_Pokedex;
         this.nombre = p.nombre;
         this.mote = p.mote;
         this.nivel = p.nivel;
@@ -152,7 +152,7 @@ public class Pokemon {
                    String estado, Objeto objeto, String imgFrontal, String imgTrasera) {
         super();
         this.idPokemon = idPokemon;
-        this.numPokedex = numPokedex;
+        this.num_Pokedex = numPokedex;
         this.nombre = nombre;
         this.mote = mote;
         this.nivel = nivel;
@@ -324,11 +324,11 @@ public class Pokemon {
     }
 
     public int getNumPokedex() {
-        return numPokedex;
+        return num_Pokedex;
     }
 
-    public void setNumPokedex(int numPokedex) {
-        this.numPokedex = numPokedex;
+    public void setNumPokedex(int num_Pokedex) {
+        this.num_Pokedex = num_Pokedex;
     }
 
     public  String getImgFrontal() {
