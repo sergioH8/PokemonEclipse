@@ -55,7 +55,7 @@
             <Image url="@../../img/fondos/pokemonLogo.svg.png" />
         </ImageView>
       <PasswordField fx:id="txtPassword" layoutX="280.0" layoutY="243.0" onKeyTyped="#eventKey" prefHeight="26.0" prefWidth="226.0" promptText="Contraseña" />
-      <Label fx:id="lblError" contentDisplay="CENTER" layoutX="287.0" layoutY="281.0" prefHeight="26.0" prefWidth="211.0" text="error" textAlignment="CENTER" textFill="RED" visible="false">
+      <Label fx:id="lblError" alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="287.0" prefHeight="26.0" prefWidth="526.0" text="error" textAlignment="CENTER" textFill="RED" visible="false">
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Label>
