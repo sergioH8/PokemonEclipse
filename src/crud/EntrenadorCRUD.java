@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Random;
 
 import modelo.Entrenador;
 
@@ -63,8 +64,7 @@ public class EntrenadorCRUD {
 	}
 	
 	public static int generarPokedollar() {
-		int pokedollar = (int) (Math.random()*1000+800);
-		
-		return pokedollar;
+		Random rd = new Random();
+		return rd.nextInt(501) + 1000;
 	}
 }
