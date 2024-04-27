@@ -7,6 +7,7 @@ import java.util.Random;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import modelo.Entrenador;
@@ -40,8 +41,25 @@ public class CapturaController {
     		MenuController.show();
     		stage.close();
     }
-
-    
+    @FXML
+    void capturarPokemon(ActionEvent event) {
+    	 boolean capturado = Entrenador.capturarPokemon();
+         if (capturado) {
+             mostrarAnimacionCaptura();
+             // Actualizar la interfaz de usuario
+         } else {
+             // Mostrar un mensaje indicando que la captura falló
+         }
+   } 
+         
+         private void mostrarAnimacionCaptura() {
+             // Aquí puedes mostrar la animación de captura utilizando un ImageView
+             // y una secuencia de imágenes GIF
+             // Por ejemplo:
+             // 1. Cargar la secuencia de imágenes GIF en un ImageView
+             // 2. Configurar una Timeline para mostrar las imágenes en secuencia
+             // 3. Reproducir la animación
+         }
 
     public void init(Entrenador entrenador, Stage stage, MenuController menuController) {
         this.stage = stage;
@@ -56,7 +74,10 @@ public class CapturaController {
                 pokemonCapturado = pokedex.get(index);
 
                 
-                imgPokemon.setId(pokemonCapturado.getImgFrontal());
+                String imageUrl = "file:///" + pokemonCapturado.getImgFrontal();
+                Image imagenPokemon = new Image(imageUrl);
+                imgPokemon.setImage(imagenPokemon);
+                
             } else {
                 // Manejar el caso en que no hay Pokémones en la Pokédex
             }

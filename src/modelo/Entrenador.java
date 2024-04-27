@@ -141,7 +141,7 @@ public class Entrenador {
     }
 
    
-    public String getpass() {
+    public String getPass() {
         return pass;
     }
 
@@ -171,7 +171,7 @@ public class Entrenador {
      *
      * @return boolean
      */
-    public boolean capturarPokemon() {
+    public static boolean capturarPokemon() {
         int numeroAleatorio = (int) (Math.random() * 3 + 1);
         if (numeroAleatorio == 1 || numeroAleatorio == 2) {
             return true;

@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.LinkedList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -20,8 +21,8 @@ public class CrianzaPokemon {
         hijo.setNombre(m.getNombre());
         hijo.setImgFrontal(m.getImgFrontal());
         hijo.setImgTrasera(m.getImgTrasera());
-        hijo.setTipoPrimario(m.getTipoPrimario());
-        hijo.setTipoSecundario(m.getTipoSecundario());
+        hijo.setTipoPrimario(Pokemon.getTipoPrimario());
+        hijo.setTipoSecundario(Pokemon.getTipoSecundario());
 
         hijo.setMote(crearMote(p, m));
         hijo.setMovimientos(crearMovimiento(p, m));
@@ -51,31 +52,30 @@ public class CrianzaPokemon {
     }
 
     // Creamos lista de moviminetos con los dos primeros del padre y lso dos primeros de la madre
+    private LinkedList<Movimiento> crearMovimiento(Pokemon p, Pokemon a) {
+		LinkedList<Movimiento> hijo = new LinkedList<Movimiento>();
+		try {
+			hijo.add(Pokemon.getMovimientos().get(0));
+		} catch (IndexOutOfBoundsException e) {
+		}
+		try {
+			hijo.add(Pokemon.getMovimientos().get(1));
+		} catch (IndexOutOfBoundsException e) {
 
-    private Movimiento[] crearMovimiento(Pokemon p, Pokemon m) {
-        Movimiento[] hijo = new Movimiento[4];
-        try {
-            hijo[0] = p.getMovimientos()[0]; // Obtener el primer movimiento de p
-        } catch (IndexOutOfBoundsException e) {
-        }
-        try {
-            hijo[1] = m.getMovimientos()[1]; // Obtener el segundo movimiento de a
-        } catch (IndexOutOfBoundsException e) {
+		}
+		try {
+			hijo.add(Pokemon.getMovimientos().get(2));
+		} catch (IndexOutOfBoundsException e) {
 
-        }
-        try {
-            hijo[2] = p.getMovimientos()[2]; // Obtener el tercer movimiento de p
-        } catch (IndexOutOfBoundsException e) {
+		}
+		try {
+			hijo.add(Pokemon.getMovimientos().get(3));
+		} catch (IndexOutOfBoundsException e) {
 
-        }
-        try {
-            hijo[3] = m.getMovimientos()[3]; // Obtener el cuarto movimiento de a
-        } catch (IndexOutOfBoundsException e) {
+		}
 
-        }
-
-        return hijo;
-    }
+		return hijo;
+	}
 
 
 

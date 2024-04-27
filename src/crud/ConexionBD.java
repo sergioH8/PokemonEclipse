@@ -8,7 +8,7 @@ public class ConexionBD {
 
     public static Connection conexion;
 
-    public Connection getConexion() throws SQLException {
+    public static Connection getConexion() throws SQLException {
 
         String dbName = "bdpokemonlc";
         String url = "jdbc:mysql://localhost:3306/bdpokemonlc";

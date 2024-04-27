@@ -289,38 +289,6 @@ public class Combate {
 
 
 
-    public void ataqueRival() {
-   
-        int indiceMovimientoAleatorio = (int) (Math.random() * Pokemon.getMovimientos().length);
-
-        
-        Movimiento movimientoSeleccionado = Pokemon.getMovimientos()[indiceMovimientoAleatorio];
-
-   
-        movimientoSeleccionado.ejecutar(pokemonEntrenadorRival, pokemonEntrenador);
-
-       
-        System.out.println("El Pokémon rival " + pokemonEntrenadorRival.getNombre() + " ha usado " + movimientoSeleccionado.getNombre());
-    }
-
-    public void ataquePropio(int indiceMovimiento) {
-      
-        if (indiceMovimiento < 0 || indiceMovimiento >= Pokemon.getMovimientos().length) {
-            System.out.println("Índice de movimiento no válido.");
-            return;
-        }
-
-       
-        Movimiento movimientoSeleccionado = Pokemon.getMovimientos()[indiceMovimiento];
-
-      
-        movimientoSeleccionado.ejecutar(pokemonEntrenador, pokemonEntrenadorRival);
-
-     
-        System.out.println("El Pokémon " + pokemonEntrenador.getNombre() + " ha usado " + movimientoSeleccionado.getNombre());
-    }
-
-
     /**
      * Comprueba la velocidad de ambos Pokemon en combate. Devuelve true si el valor
      * de velocidad del Pokemon del Entrenador es mayor o igual a la del Rival. En

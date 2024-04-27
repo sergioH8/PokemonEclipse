@@ -13,7 +13,7 @@
             <Image url="@../../img/fondos/praderaCaptura3.jpeg" />
          </image>
       </ImageView>
-      <Button fx:id="btnCapturar" layoutX="243.0" layoutY="334.0" mnemonicParsing="false" text="Capturar" textAlignment="CENTER">
+      <Button fx:id="btnCapturar" layoutX="243.0" layoutY="334.0" mnemonicParsing="false" onAction="#capturarPokemon" text="Capturar" textAlignment="CENTER">
          <font>
             <Font size="14.0" />
          </font>
