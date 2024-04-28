@@ -1,8 +1,6 @@
 package controller;
 
 
-import java.io.File;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import crud.ConexionBD;
+import crud.EntrenadorCRUD;
 import crud.LoginCRUD;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -57,7 +56,6 @@ public class LoginController {
     public void cerrarApp(ActionEvent event) {
         Stage stage = (Stage) btnCerrar.getScene().getWindow();
         stage.close();
-        //Otra opción para cerrar la ventana: System.exit(0);
     }
 
     
@@ -85,7 +83,7 @@ public class LoginController {
 
 	
     /*
-	METODO DE LOGIN DE LUISRE
+	METODO DE LOGIN
 	*/
     public void loguearme(ActionEvent event) throws SQLException{
         Object evt = event.getSource();
@@ -159,9 +157,63 @@ public class LoginController {
      * @param event
      */
     @FXML
-    public void registrarme(ActionEvent event) {
-      
-    }
+    public void registrarme(ActionEvent event) throws SQLException{
+
+            if(txtFUser.getText().isEmpty()){
+                lblError.setText("Error: Inserta el usuario");
+                lblError.setVisible(true);
+            }else if(txtPassword.getText().isEmpty()) {
+                lblError.setText("Error: Inserta la contraseña");
+                lblError.setVisible(true);
+            }else{
+                String nombre = txtFUser.getText();
+                String pass = txtPassword.getText();
+
+                String sql = "SELECT PASS" +
+                        " FROM ENTRENADOR" +
+                        " WHERE NOMBRE = ?";
+    			
+    			ConexionBD con = new ConexionBD();
+    			
+    			Connection conexion = con.getConexion();
+    			
+    			try{
+    				PreparedStatement pst = conexion.prepareStatement(sql);
+    				pst.setString(1, nombre);
+    				
+    				ResultSet rs = pst.executeQuery();
+    				
+    				Entrenador entrenador = new Entrenador(nombre, pass);
+    				
+    				if(!rs.isBeforeFirst()){
+    					EntrenadorCRUD.crearEntNuevo(conexion, entrenador);
+    					try{
+							FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/vistaMenu.fxml"));
+							Parent root = loader.load();
+							MenuController menuController = loader.getController(); 
+							Scene scene = new Scene(root);
+							Stage stage = new Stage();
+							stage.setScene(scene);//Cargamos la escena en el stage.
+							menuController.init(entrenador, stage, this);//Crear el método init en MenuController y le pasamos los datos
+							stage.show();
+							this.stage.close();
+							
+						}catch(IOException e){
+							e.printStackTrace();
+						}
+    				}else{
+    					while(rs.next()){
+    							lblError.setText("El usuario ya existe. Inicie sesión");
+    							lblError.setVisible(true);
+    						}
+    					
+    				}
+    			}catch(SQLException e) {
+    				e.printStackTrace();
+    			}
+            }
+        }
+
 	
 	public void show() {
 		stage.show();
