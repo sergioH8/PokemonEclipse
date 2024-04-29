@@ -13,20 +13,25 @@ import modelo.Tipo;
 public class PokemonCRUD {
 
 	public static void obtenerPokemon(Connection conexion, Entrenador entrenador, int caja) throws SQLException {
-		String sql = "SELECT 	PK.ID_POKEMON,\r\n"
+		String sql = "SELECT 	"
+				+ "		PK.ID_POKEMON,\r\n"
 				+ "		PX.NUM_POKEDEX,\r\n"
 				+ "		PX.NOMBRE,\r\n"
 				+ "		PX.TIPO,\r\n"
 				+ "		PX.TIPO2,\r\n"
 				+ "		PX.IMG_FRONT,\r\n"
+				+ "		PX.IMG_BACK,\r\n"
 				+ "		PX.SONIDO,\r\n"
 				+ "		PX.NIVEL_EVOLUCION,\r\n"
 				+ "		PX.NUM_POKEDEX_EVO,\r\n"
 				+ "		PK.ATAQUE,\r\n"
 				+ "		PK.ATAQUE_ESPECIAL,\r\n"
 				+ "		PK.DEFENSA,\r\n"
+				+ "		PK.DEFENSA,\r\n"
+				+ "		PK.VELOCIDAD,\r\n"
 				+ "		PK.MOTE,\r\n"
 				+ "		PK.NIVEL\r\n"
+				+ "		PK.FERTILIDAD\r\n"
 				+ "FROM POKEMON PK\r\n"
 				+ "INNER JOIN POKEDEX PX\r\n"
 				+ "	ON PX.NUM_POKEDEX = PK.NUM_POKEDEX\r\n"
@@ -48,12 +53,16 @@ public class PokemonCRUD {
 			poke.setTipoPrimario(Tipo.convertirTipoDesdeString(rs.getString(4)));
 			poke.setTipoSecundario(Tipo.convertirTipoDesdeString(rs.getString(5)));
 			poke.setImgFrontal(rs.getString(6));
+			poke.setImgTrasera(rs.getString(7));
 			poke.setNivelEvolucion(rs.getInt(8));
-			poke.setAtaque(rs.getInt(10));
-			poke.setAtaqueEspecial(rs.getInt(11));
+			poke.setAtaque(rs.getInt(9));
+			poke.setAtaqueEspecial(rs.getInt(10));
+			poke.setDefensaEspecial(rs.getInt(11));
 			poke.setDefensa(rs.getInt(12));
-			poke.setMote(rs.getString(13));
-			poke.setNivel(rs.getInt(14));
+			poke.setVelocidad(13);
+			poke.setFertilidad(144);
+			poke.setMote(rs.getString(15));
+			poke.setNivel(rs.getInt(16));
 			//poke.setMovimientos(obtenerMovimientos(conexion, poke.getIdPokemon()));
 			//poke.setObjeto(obtenerObjeto(conexion, poke.getIdPokemon()));
 			listadoPokemon.add(poke);
