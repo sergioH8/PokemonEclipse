@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2024 at 01:25 PM
+-- Generation Time: Apr 29, 2024 at 09:14 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -442,7 +442,7 @@ CREATE TABLE `pokemon` (
   `defensa_especial` int(11) NOT NULL,
   `velocidad` int(11) NOT NULL,
   `fertilidad` int(11) NOT NULL DEFAULT 5,
-  `objeto` tinyint(1) DEFAULT NULL,
+  `id_objeto` int(1) DEFAULT NULL,
   `movimiento1` int(11) NOT NULL,
   `movimiento2` int(11) DEFAULT NULL,
   `movimiento3` int(11) DEFAULT NULL,
@@ -568,7 +568,8 @@ ALTER TABLE `pokemon`
   ADD KEY `pokemon_movimiento3_fk` (`movimiento3`),
   ADD KEY `pokemon_movimiento4_fk` (`movimiento4`),
   ADD KEY `pokemon_estado_fk` (`estado`),
-  ADD KEY `pokemon_caja_fk` (`id_caja`);
+  ADD KEY `pokemon_caja_fk` (`id_caja`),
+  ADD KEY `pokemon_objeto_fk` (`id_objeto`);
 
 --
 -- Indexes for table `tipo`
@@ -681,6 +682,7 @@ ALTER TABLE `pokemon`
   ADD CONSTRAINT `pokemon_movimiento2_fk` FOREIGN KEY (`movimiento2`) REFERENCES `movimiento` (`id_movimiento`),
   ADD CONSTRAINT `pokemon_movimiento3_fk` FOREIGN KEY (`movimiento3`) REFERENCES `movimiento` (`id_movimiento`),
   ADD CONSTRAINT `pokemon_movimiento4_fk` FOREIGN KEY (`movimiento4`) REFERENCES `movimiento` (`id_movimiento`),
+  ADD CONSTRAINT `pokemon_objeto_fk` FOREIGN KEY (`id_objeto`) REFERENCES `objeto` (`id_objeto`),
   ADD CONSTRAINT `pokemon_pokedex_fk` FOREIGN KEY (`num_pokedex`) REFERENCES `pokedex` (`num_pokedex`);
 
 --
