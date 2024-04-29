@@ -67,35 +67,24 @@ public class LoginController {
             event.consume();
         }
     }
-        /*
-        if(evt.equals(txtFUser)){
-            if(event.getCharacter().equals(" ")){
-                event.consume();
-            }
-        }else if(evt.equals(txtPassword)){
-            if(event.getCharacter().equals(" ")){
-                event.consume();
-            }
-        }
-
-
-
 
 	
-    /*
-	METODO DE LOGIN
-	*/
+    /**
+     * Metodo para el boton "Iniciar sesion"
+     * Mediante un If else controlo las diferentes opciones, poniendo mensajes de error en caso de que se inserten mal los datos o no se inserten
+     * @param event
+     * @throws SQLException
+     */
     public void loguearme(ActionEvent event) throws SQLException{
-        Object evt = event.getSource();
-
+        
         if(txtFUser.getText().isEmpty()){
             lblError.setText("Error: Inserta el usuario");
             lblError.setVisible(true);
         }else if(txtPassword.getText().isEmpty()) {
             lblError.setText("Error: Inserta la contraseña");
             lblError.setVisible(true);
-        }else{
-            String usuario = txtFUser.getText();
+        }else{ //Cuando están los dos campos escritos, recupero la informacion y realizo la consulta sql, estableciendo la conexion
+            String nombre = txtFUser.getText();
             String pass = txtPassword.getText();
 
             String sql = "SELECT PASS" +
@@ -108,18 +97,18 @@ public class LoginController {
 			
 			try{
 				PreparedStatement pst = conexion.prepareStatement(sql);
-				pst.setString(1, usuario);
-				
-				
-				ResultSet rs = pst.executeQuery(); //En el Statement si se necesita st.executeQuery(sql), pero el pst no necesita pasar la SQL, solo executeQuery
+				pst.setString(1, nombre);		
+				ResultSet rs = pst.executeQuery();
+				//Con la información de la base de datos, compruebo si el usuario está ya registrado o no, por medio de un if
 				if(!rs.isBeforeFirst()){
 					lblError.setText("Usuario no registrado.");
-						lblError.setVisible(true);
+						lblError.setVisible(true);//Muestro el mensaje de error en la pantalla
 				}else{
-					while(rs.next()){
+					while(rs.next()){//En principio solo va a haber un usuario
 						if(rs.getString(1).equals(pass)){
 							System.out.println("Usuario encontrado");
-							//Cambiamos de ventana
+							Entrenador entrenador = new Entrenador(nombre, pass);
+							//Cambiamos de ventana,entrando en la de menú
 							try{
 								FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/vistaMenu.fxml"));
 								Parent root = loader.load();
@@ -127,7 +116,6 @@ public class LoginController {
 								Scene scene = new Scene(root);
 								Stage stage = new Stage();
 								stage.setScene(scene);//Cargamos la escena en el stage.
-								Entrenador entrenador = new Entrenador();
 								menuController.init(entrenador, stage, this);//Crear el método init en MenuController y le pasamos los datos
 								stage.show();
 								this.stage.close();
@@ -138,7 +126,7 @@ public class LoginController {
 							
 						}else{
 							lblError.setText("Contraseña incorrecta");
-							lblError.setVisible(true);
+							lblError.setVisible(true);//Muestro el mensaje de error en caso de que la contraseña no coincida con la de la base de datos
 						}
 					}
 				}
@@ -166,6 +154,7 @@ public class LoginController {
                 lblError.setText("Error: Inserta la contraseña");
                 lblError.setVisible(true);
             }else{
+            	//Cuando están los dos campos escritos, recupero la informacion y realizo la consulta sql, estableciendo la conexion
                 String nombre = txtFUser.getText();
                 String pass = txtPassword.getText();
 
@@ -185,8 +174,9 @@ public class LoginController {
     				
     				Entrenador entrenador = new Entrenador(nombre, pass);
     				
-    				if(!rs.isBeforeFirst()){
+    				if(!rs.isBeforeFirst()){//Si no hay un usuario conectado con el mismo nombre y contraseña, llama al metodo para crear uno nuevo
     					EntrenadorCRUD.crearEntNuevo(conexion, entrenador);
+    					//Pasamos a la siguiente pantalla, la de menu
     					try{
 							FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/vistaMenu.fxml"));
 							Parent root = loader.load();
@@ -202,6 +192,7 @@ public class LoginController {
 							e.printStackTrace();
 						}
     				}else{
+    					//Si el usuario que se quiere registrar se encuentra ya en la base de datos, no deja registrarse y muestra un mensaje de error
     					while(rs.next()){
     							lblError.setText("El usuario ya existe. Inicie sesión");
     							lblError.setVisible(true);
@@ -217,7 +208,7 @@ public class LoginController {
 	
 	public void show() {
 		stage.show();
-		lblError.setVisible(false);
+		lblError.setVisible(false);//Oculto el mensaje de error en caso de que apareciera 
 		txtFUser.setText("");//Al salir del menu al Login, se borra el usuario y la contraseña
 		txtPassword.setText("");
 	}
