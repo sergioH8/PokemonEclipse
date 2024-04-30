@@ -217,7 +217,20 @@ public class MenuController {
 
 	@FXML
 	void irTienda(MouseEvent event) {
-		
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/vistaTienda.fxml"));
+			Parent root = loader.load();
+			TiendaController tiendaController = new TiendaController();
+			tiendaController = loader.getController();
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			tiendaController.init(entrenador, stage, this);
+			stage.show();
+			MenuController.stage.close(); 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
