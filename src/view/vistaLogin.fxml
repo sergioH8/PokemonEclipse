@@ -64,7 +64,7 @@
             <Image url="@../../img/fondos/sonido.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgSinSonido" fitHeight="60.0" fitWidth="65.0" layoutX="26.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="imgSinSonido" fitHeight="60.0" fitWidth="65.0" layoutX="26.0" layoutY="410.0" onMouseClicked="#ponerSonido" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../img/fondos/pngwing.com.png" />
          </image>

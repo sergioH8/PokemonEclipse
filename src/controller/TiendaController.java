@@ -46,12 +46,22 @@ public class TiendaController {
 
     }
 
+    /**
+     * Metodo para salir de la pantalla Tienda al menú
+     * @param event
+     */
     @FXML
     void salirMenu(MouseEvent event) {
     	MenuController.show();
     	stage.close();
     }
     
+    /**
+     * Método para cargar esta pantalla de Tienda a través del botón del Menu
+     * @param entrenador
+     * @param stage
+     * @param menuController
+     */
     public void init(Entrenador entrenador, Stage stage, MenuController menuController) {
 		this.stage = stage;
         try {

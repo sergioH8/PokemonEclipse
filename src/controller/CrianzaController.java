@@ -49,28 +49,15 @@ public class CrianzaController {
     public Button btnAbrirHuevo;
     @FXML
     public ImageView imgPokemonNuevo;
-
-
     @FXML
-    protected void irAtras(){
-        try{
-            Stage nuevoEscenario = (Stage) btnAtras.getScene().getWindow();
-            nuevoEscenario.close();
+    private Button btnCambiarHembra;
+    @FXML
+    private Button btnCambiarMacho;
+    @FXML
+    private Button btnFinalizarCrianza;
 
-            FXMLLoader carga = new FXMLLoader(getClass().getResource("../../vistas/vistaMenu.fxml"));
-            Parent raiz = carga.load();
-            Scene escena = new Scene(raiz);
-            Stage escenarioActual = new Stage();
 
-            escenarioActual.initModality(Modality.APPLICATION_MODAL);
-            escenarioActual.setScene(escena);
-            escenarioActual.show();
-
-        }catch(IOException e){
-            e.printStackTrace();
-        }
-    }
-
+    
 
 	public void init(Entrenador entrenador, Stage stage, MenuController menuController) {
 		this.stage = stage;
@@ -78,6 +65,7 @@ public class CrianzaController {
             ConexionBD conexionBD = new ConexionBD();
             Connection conexion = conexionBD.getConexion();
             LinkedList<Pokemon> pokedex = PokemonCRUD.obtenerPokedex(conexion); // Obtener todos los Pokémones de la Pokédex
+            btnAbrirHuevo.setVisible(false);
 
         } catch (SQLException e) {
             e.printStackTrace(); // Manejar o registrar la excepción adecuadamente
@@ -90,4 +78,38 @@ public class CrianzaController {
     	MenuController.show();
     	stage.close();
     }
+
+    @FXML
+    void cambiarHembra(MouseEvent event) {
+
+    }
+
+    @FXML
+    void seleccionHembra(MouseEvent event) {
+
+    }
+
+    @FXML
+    void cambiarMacho(MouseEvent event) {
+
+    }
+    
+    @FXML
+    void seleccionMacho(MouseEvent event) {
+
+    }
+
+    @FXML
+    void finalizarCrianza(MouseEvent event) {
+
+    }
+
+    @FXML
+    void abrirHuevo(MouseEvent event) {
+
+    }
+
+
+
+
 }

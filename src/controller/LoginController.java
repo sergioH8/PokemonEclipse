@@ -244,6 +244,11 @@ public class LoginController {
     	imgSinSonido.setVisible(true);
     }
     
+    @FXML
+    void ponerSonido(MouseEvent event) {
+    	imgSinSonido.setVisible(false);
+    }
+    
     
 }
 
