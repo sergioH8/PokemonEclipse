@@ -16,14 +16,16 @@ import crud.ConexionBD;
 import crud.PokemonCRUD;
 
 public class CapturaController {
-	
+	private LinkedList<Pokemon> pokedex;
 	private Stage stage;
 	private Pokemon pokemonCapturado;
 
     @FXML
     public ImageView imgPokemon;
    
-    
+    @FXML
+    private Button btnGenerar;
+
     @FXML
     private Button btnCapturar;
 
@@ -34,7 +36,23 @@ public class CapturaController {
     private ImageView imgCaptura;
 
     
+    @FXML
+    void generarPokemon(ActionEvent event) {
+    	
+         if (pokedex != null && !pokedex.isEmpty()) {
+             Random random = new Random();
+             int index = random.nextInt(pokedex.size());
+             pokemonCapturado = pokedex.get(index);
 
+             
+             String imageUrl = "file:///" + pokemonCapturado.getImgFrontal();
+             Image imagenPokemon = new Image(imageUrl);
+             imgPokemon.setImage(imagenPokemon);
+             
+         } else {
+             // Manejar el caso en que no hay Pokémones en la Pokédex
+         }
+    }
     @FXML
     void salirMenu(ActionEvent event) {
     
@@ -66,21 +84,7 @@ public class CapturaController {
         try {
             ConexionBD conexionBD = new ConexionBD();
             Connection conexion = conexionBD.getConexion();
-            LinkedList<Pokemon> pokedex = PokemonCRUD.obtenerPokedex(conexion); // Obtener todos los Pokémones de la Pokédex
-
-            if (pokedex != null && !pokedex.isEmpty()) {
-                Random random = new Random();
-                int index = random.nextInt(pokedex.size());
-                pokemonCapturado = pokedex.get(index);
-
-                
-                String imageUrl = "file:///" + pokemonCapturado.getImgFrontal();
-                Image imagenPokemon = new Image(imageUrl);
-                imgPokemon.setImage(imagenPokemon);
-                
-            } else {
-                // Manejar el caso en que no hay Pokémones en la Pokédex
-            }
+            pokedex = PokemonCRUD.obtenerPokedex(conexion); // Obtener todos los Pokémones de la Pokédex
         } catch (SQLException e) {
             e.printStackTrace(); // Manejar o registrar la excepción adecuadamente
         }
