@@ -19,6 +19,11 @@
          </font>
       </Button>
       <Button fx:id="btnVolverMenu" layoutX="21.0" layoutY="360.0" mnemonicParsing="false" onAction="#salirMenu" text="Volver al Menu" textFill="#c14848" />
+      <Button fx:id="btnGenerar" layoutX="389.0" layoutY="334.0" mnemonicParsing="false" onAction="#generarPokemon" text="Generar" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
       <ImageView fx:id="imgPokemon" fitHeight="150.0" fitWidth="191.0" layoutX="337.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
