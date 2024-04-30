@@ -65,7 +65,7 @@ public class PokemonCRUD {
 			poke.setDefensaEspecial(rs.getInt(11));
 			poke.setDefensa(rs.getInt(12));
 			poke.setVelocidad(13);
-			poke.setFertilidad(144);
+			poke.setFertilidad(14);
 			poke.setMote(rs.getString(15));
 			poke.setNivel(rs.getInt(16));
 			poke.setVitalidad(rs.getInt(17));
@@ -88,7 +88,13 @@ public class PokemonCRUD {
 	public static LinkedList<Pokemon> obtenerPokedex(Connection conexion) throws SQLException {
         LinkedList<Pokemon> pokedex = new LinkedList<>();
 
-        String sql = "SELECT NUM_POKEDEX, NOMBRE, TIPO, TIPO2, IMG_FRONT FROM  POKEDEX";
+        String sql = "SELECT"
+        		+ " NUM_POKEDEX,"
+        		+ " NOMBRE,"
+        		+ " TIPO,"
+        		+ " TIPO2,"
+        		+ " IMG_FRONT"
+        		+ " FROM  POKEDEX";
         PreparedStatement ps = conexion.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
 
