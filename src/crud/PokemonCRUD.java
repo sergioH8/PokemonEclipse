@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 
 import modelo.Entrenador;
+import modelo.Estado;
 import modelo.Pokemon;
 import modelo.Tipo;
 
@@ -32,6 +33,10 @@ public class PokemonCRUD {
 				+ "		PK.MOTE,\r\n"
 				+ "		PK.NIVEL\r\n"
 				+ "		PK.FERTILIDAD\r\n"
+				+ "		PK.VITALIDAD\r\n"
+				+ "		PK.ESTADO\r\n"
+				+ "		PK.EXPERIENCIA\r\n"
+				+ "		PK.SEXO\r\n"
 				+ "FROM POKEMON PK\r\n"
 				+ "INNER JOIN POKEDEX PX\r\n"
 				+ "	ON PX.NUM_POKEDEX = PK.NUM_POKEDEX\r\n"
@@ -63,6 +68,10 @@ public class PokemonCRUD {
 			poke.setFertilidad(144);
 			poke.setMote(rs.getString(15));
 			poke.setNivel(rs.getInt(16));
+			poke.setVitalidad(rs.getInt(17));
+			poke.setExperienciaObtenida(18);
+			poke.setSexo(rs.getBoolean(19));
+			poke.setEstado(Estado.convertirEstadoDesdeString(rs.getString(20)));
 			//poke.setMovimientos(obtenerMovimientos(conexion, poke.getIdPokemon()));
 			//poke.setObjeto(obtenerObjeto(conexion, poke.getIdPokemon()));
 			listadoPokemon.add(poke);

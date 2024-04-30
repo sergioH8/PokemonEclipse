@@ -22,7 +22,8 @@ public enum Estado {
     CENTRO_DE_ATENCION("Crentro_de_atencion"),
     AMEDRENTADO("Amedrentado");
 
-    private final String nombre;
+   
+	private final String nombre;
 
     Estado(String nombre) {
         this.nombre = nombre;
@@ -31,6 +32,7 @@ public enum Estado {
     public String getNombre() {
         return nombre;
     }
+    
 
     public boolean esPersistente() {
         switch (this) {
@@ -49,4 +51,13 @@ public enum Estado {
                 return false;
         }
     }
+
+	public static Estado convertirEstadoDesdeString(String estadoString) {
+		for (Estado estado : Estado.values()) { 
+			if(estado.getNombre().toUpperCase().equalsIgnoreCase(estadoString)) { 
+				return estado; 
+			} 
+		} 
+		return null;
+	}
 }
