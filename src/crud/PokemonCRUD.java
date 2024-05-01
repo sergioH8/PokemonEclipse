@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 
+import controller.CapturaController;
 import modelo.Entrenador;
 import modelo.Estado;
 import modelo.Pokemon;
@@ -49,7 +50,7 @@ public class PokemonCRUD {
 		
 		ResultSet rs = ps.executeQuery();
 		LinkedList<Pokemon> listadoPokemon = new LinkedList<Pokemon>();
-		Pokemon poke;
+		Pokemon poke ;
 		while (rs.next()) {
 			poke = new Pokemon();
 			poke.setIdPokemon(rs.getInt(1));
@@ -109,5 +110,23 @@ public class PokemonCRUD {
         }
 
         return pokedex;
+    }
+	
+	public static void insertarPokemon(Connection conexion, Pokemon pokemon, int idEntrenador, int caja) throws SQLException {
+        String sql = "INSERT INTO POKEMON (NUM_POKEDEX, ID_ENTRENADOR, CAJA, ...) VALUES (?, ?, ?, ...)";
+        
+        PreparedStatement ps = conexion.prepareStatement(sql);
+        ps.setInt(1, pokemon.getNumPokedex());
+        ps.setInt(2, idEntrenador);
+        ps.setInt(3, caja);
+        // Establece los otros parámetros necesarios para insertar el Pokémon
+        
+        int filasInsertadas = ps.executeUpdate();
+        
+        if (filasInsertadas == 1) {
+            System.out.println("¡Pokemon capturado e insertado en la base de datos correctamente!");
+        } else {
+            System.out.println("¡Error al insertar el Pokemon en la base de datos!");
+        }
     }
 }

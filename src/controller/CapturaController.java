@@ -12,14 +12,17 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import modelo.Entrenador;
 import modelo.Pokemon;
+import crud.CapturaCRUD;
 import crud.ConexionBD;
 import crud.PokemonCRUD;
 
 public class CapturaController {
+	
 	private LinkedList<Pokemon> pokedex;
 	private Stage stage;
 	private Pokemon pokemonCapturado;
-
+	public static boolean capturado;
+	
     @FXML
     public ImageView imgPokemon;
    
@@ -34,6 +37,7 @@ public class CapturaController {
 
     @FXML
     private ImageView imgCaptura;
+	private Entrenador entrenador;
 
     
     @FXML
@@ -60,11 +64,11 @@ public class CapturaController {
     		stage.close();
     }
     @FXML
-    void capturarPokemon(ActionEvent event) {
+    void capturarPokemon(ActionEvent event) throws ClassNotFoundException {
     	 boolean capturado = Entrenador.capturarPokemon();
          if (capturado) {
              mostrarAnimacionCaptura();
-             // Actualizar la interfaz de usuario
+             CapturaCRUD.insertCapturaCaja(pokemonCapturado, entrenador);
          } else {
              // Mostrar un mensaje indicando que la captura falló
          }
@@ -81,6 +85,7 @@ public class CapturaController {
 
     public void init(Entrenador entrenador, Stage stage, MenuController menuController) {
         this.stage = stage;
+        this.entrenador = entrenador; // Asigna el entrenador recibido al campo del controlador
         try {
             ConexionBD conexionBD = new ConexionBD();
             Connection conexion = conexionBD.getConexion();
