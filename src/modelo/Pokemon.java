@@ -409,9 +409,7 @@ public class Pokemon {
         pkmnRandom.setVelocidad(random.nextInt(10) + 1);
         pkmnRandom.setVitalidadActual(pkmnRandom.getVitalidad());
         pkmnRandom.setFertilidad(5);
-
-        // Genera un número aleatorio entre 1 y 3, si es 2, el Pokémon es hembra, de lo contrario, es macho
-        pkmnRandom.sexo = random.nextInt(3) == 2;
+        pkmnRandom.generarSexo();
 
         return pkmnRandom;
     }
@@ -432,7 +430,7 @@ public class Pokemon {
 
 	
 
-    public boolean generarSexso() {
+    public boolean generarSexo() {
         // Generar un número aleatorio entre 0 y 1
         double random = Math.random();
 

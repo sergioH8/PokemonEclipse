@@ -115,6 +115,8 @@ public class LoginController {
 						if(rs.getString(1).equals(pass)){
 							System.out.println("Usuario encontrado");
 							Entrenador entrenador = new Entrenador(nombre, pass);
+							EntrenadorCRUD.obtenerIdPokedolar(conexion, entrenador);
+							
 							//Cambiamos de ventana,entrando en la de menú
 							try{
 								FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/vistaMenu.fxml"));

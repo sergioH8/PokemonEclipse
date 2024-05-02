@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/BBDD/bdpokemonlc (5).sql</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Users/sergi/Downloads/bdpokemonlc%20(5).sql</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

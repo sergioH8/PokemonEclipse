@@ -106,6 +106,7 @@ public class PokemonCRUD {
             pokemon.setTipoPrimario(Tipo.convertirTipoDesdeString(rs.getString("TIPO")));
             pokemon.setTipoSecundario(Tipo.convertirTipoDesdeString(rs.getString("TIPO2")));          
             pokemon.setImgFrontal(rs.getString("img_front"));
+            
             pokedex.add(pokemon);
         }
 
