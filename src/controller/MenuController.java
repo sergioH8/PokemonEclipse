@@ -70,9 +70,7 @@ public class MenuController {
 	@FXML
 	public Label lblUsuario;
 
-	public void init(Entrenador ent, Stage stage2, LoginController loginController) throws SQLException { // Método con
-																											// los
-																											// parametros!!!
+	public void init(Entrenador ent, Stage stage2, LoginController loginController) throws SQLException { 
 		lblUsuario.setText(ent.getNombre());// Aparece el nombre de usuario en el menú.
 		this.loginController = loginController;
 		this.stage = stage2;
@@ -82,15 +80,15 @@ public class MenuController {
 		ConexionBD con = new ConexionBD();
 
 		Connection conexion = con.getConexion();
-//
-//		try {
-//			PokemonCRUD.obtenerPokemon(conexion, this.entrenador, EQUIPOPRINCIPAL);
-//			PokemonCRUD.obtenerPokemon(conexion, this.entrenador, EQUIPOSECUNDARIO);
-//			
-//		}catch(Exception e) {
-//			e.setStackTrace(null);
-//		}
-//
+
+		try {
+			PokemonCRUD.obtenerPokemon(conexion, this.entrenador, EQUIPOPRINCIPAL);
+			PokemonCRUD.obtenerPokemon(conexion, this.entrenador, EQUIPOSECUNDARIO);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	public void salir(MouseEvent event) {

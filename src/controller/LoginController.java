@@ -2,6 +2,7 @@ package controller;
 
 
 import java.io.File;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -227,24 +228,17 @@ public class LoginController {
 	
 
 	
-//	public void initialize() { //Metodo para poner el sonido en la pantalla de Login
-//		sonido();
-//	}
-	
-	/**
-	 * 
-	 * @param event
-	 */
     @FXML
     public void silenciarActivar(MouseEvent event) {
     	sonido();
+    	
     }
     
 
     
     public void sonido() {
     	if(!this.sonido) {
-    		String sonido = "../../inicio.wav";
+    		String sonido = "../../sonidos/inicio.wav";
     		Media sound = new Media(new File(sonido).toURI().toString());
     		
     		mediaPlayer = new MediaPlayer(sound);
