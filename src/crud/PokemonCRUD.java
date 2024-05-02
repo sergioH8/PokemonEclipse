@@ -32,17 +32,17 @@ public class PokemonCRUD {
 				+ "		PK.DEFENSA,\r\n"
 				+ "		PK.VELOCIDAD,\r\n"
 				+ "		PK.MOTE,\r\n"
-				+ "		PK.NIVEL\r\n"
-				+ "		PK.FERTILIDAD\r\n"
-				+ "		PK.VITALIDAD\r\n"
-				+ "		PK.ESTADO\r\n"
-				+ "		PK.EXPERIENCIA\r\n"
-				+ "		PK.SEXO\r\n"
-				+ "FROM POKEMON PK\r\n"
-				+ "INNER JOIN POKEDEX PX\r\n"
-				+ "	ON PX.NUM_POKEDEX = PK.NUM_POKEDEX\r\n"
-				+ "WHERE PK.ID_ENTRENADOR =?\r\n"
-				+ "AND PK.CAJA =?";	
+				+ "		PK.NIVEL,\r\n"
+				+ "		PK.FERTILIDAD,\r\n"
+				+ "		PK.VITALIDAD,\r\n"
+				+ "		PK.ESTADO,\r\n"
+				+ "		PK.EXPERIENCIA,\r\n"
+				+ "		PK.SEXO \r\n"
+				+ "FROM POKEMON PK \r\n"
+				+ "INNER JOIN POKEDEX PX \r\n"
+				+ "ON PX.NUM_POKEDEX = PK.NUM_POKEDEX \r\n"
+				+ "WHERE PK.ID_ENTRENADOR =? \r\n"
+				+ "AND PK.ID_CAJA =?";	
 		
 		PreparedStatement ps = conexion.prepareStatement(sql);
 		ps.setInt(1, entrenador.getIdEntrenador());
@@ -89,7 +89,7 @@ public class PokemonCRUD {
 	public static LinkedList<Pokemon> obtenerPokedex(Connection conexion) throws SQLException {
         LinkedList<Pokemon> pokedex = new LinkedList<>();
 
-        String sql = "SELECT"
+        String sql = "SELECT "
         		+ " NUM_POKEDEX,"
         		+ " NOMBRE,"
         		+ " TIPO,"

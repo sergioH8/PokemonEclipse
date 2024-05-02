@@ -10,17 +10,11 @@ public class MovimientoCRUD {
     public static List<Integer> movimientosExcluidos = new ArrayList<>();
     
   
-    static {
-        movimientosExcluidos.add(25); // Agregar movimiento 25 (Placaje) a la lista de excluidos
-    }
-
-    /**
-     * Obtiene un movimiento aleatorio excluyendo los movimientos previamente excluidos.
-     * 
-     * @param excluidos Lista de movimientos excluidos adicionales
-     * @return ID del movimiento obtenido aleatoriamente.
-     */
+  
+  
+   
     public static int obtenerMovimientoAleatorioExcluyendo(List<Integer> excluidos) {
+    	 movimientosExcluidos.add(25);// Agregar movimiento 25 (Placaje) a la lista de excluidos
         Random random = new Random();
         int movimientoAleatorio;
         do {

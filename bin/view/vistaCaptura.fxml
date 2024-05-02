@@ -27,7 +27,7 @@
          </font>
       </Button>
       <ImageView fx:id="imgPokemon" fitHeight="150.0" fitWidth="191.0" layoutX="328.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imgPokebal" fitHeight="68.0" fitWidth="81.0" layoutX="383.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgPokebal" fitHeight="68.0" fitWidth="81.0" layoutX="383.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../img/iconos/safari-ball.png" />
          </image>

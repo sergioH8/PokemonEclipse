@@ -26,6 +26,8 @@ public class CapturaController {
 	private Pokemon pokemonCapturado;
 	public static boolean capturado;
 	
+   
+	
 	@FXML
 	private ImageView imgPokebal;
 	 
@@ -76,8 +78,10 @@ public class CapturaController {
     @FXML
     void capturarPokemon(ActionEvent event) throws ClassNotFoundException {
     	 boolean capturado = Entrenador.capturarPokemon();
+    	 imgPokebal.setVisible(true);
+    	 imgPokemon.setVisible(false);
          if (capturado) {
-             mostrarAnimacionCaptura();
+            
              CapturaCRUD.insertCapturaCaja(pokemonCapturado, entrenador);
              lblTexto.setText("Pokemon capturado!");
              lblTexto.setVisible(true);
@@ -85,18 +89,12 @@ public class CapturaController {
          } else {
         	 lblTexto.setText("El Pokemon ha escapado!");
              lblTexto.setVisible(true);
+             imgPokebal.setVisible(false);
+        	 imgPokemon.setVisible(true);
          }
    } 
          
-         private void mostrarAnimacionCaptura() {
-             // Aquí puedes mostrar la animación de captura utilizando un ImageView
-             // y una secuencia de imágenes GIF
-             // Por ejemplo:
-             // 1. Cargar la secuencia de imágenes GIF en un ImageView
-             // 2. Configurar una Timeline para mostrar las imágenes en secuencia
-             // 3. Reproducir la animación
-         }
-
+        
     public void init(Entrenador entrenador, Stage stage, MenuController menuController) {
         this.stage = stage;
         this.entrenador = entrenador; // Asigna el entrenador recibido al campo del controlador
