@@ -48,23 +48,23 @@
             <Image url="@../../img/fondos/imgLogin.jpg" />
         </ImageView>
         <TextField fx:id="txtFUser" layoutX="279.0" layoutY="206.0" onKeyTyped="#eventKey" prefHeight="26.0" prefWidth="226.0" promptText="Usuario" />
+      <PasswordField fx:id="txtPassword" layoutX="280.0" layoutY="243.0" onKeyTyped="#eventKey" prefHeight="26.0" prefWidth="226.0" promptText="Contraseña" />
         <Button fx:id="btnIniciarSesion" layoutX="351.0" layoutY="329.0" mnemonicParsing="false" onAction="#loguearme" text="Iniciar sesion" />
         <Button fx:id="btnCerrar" layoutX="369.0" layoutY="427.0" mnemonicParsing="false" onAction="#cerrarApp" text="Cerrar" />
         <Button fx:id="btnRegistrar" layoutX="350.0" layoutY="364.0" mnemonicParsing="false" onAction="#registrarme" prefHeight="26.0" prefWidth="85.0" text="Registrarme" />
         <ImageView fx:id="imgLogo" fitHeight="167.0" fitWidth="330.0" layoutX="225.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../img/fondos/pokemonLogo.svg.png" />
         </ImageView>
-      <PasswordField fx:id="txtPassword" layoutX="280.0" layoutY="243.0" onKeyTyped="#eventKey" prefHeight="26.0" prefWidth="226.0" promptText="Contraseña" />
       <Label fx:id="lblError" alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="287.0" prefHeight="26.0" prefWidth="526.0" text="error" textAlignment="CENTER" textFill="RED" visible="false">
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Label>
-      <ImageView fx:id="imgSonido" fitHeight="41.0" fitWidth="49.0" layoutX="34.0" layoutY="419.0" onMouseClicked="#silenciarActivar" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgSonido" fitHeight="41.0" fitWidth="49.0" layoutX="34.0" layoutY="419.0" onMousePressed="#silenciarActivar" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/iconos/sonido.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgSinSonido" fitHeight="60.0" fitWidth="65.0" layoutX="26.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="imgSinSonido" fitHeight="60.0" fitWidth="65.0" layoutX="26.0" layoutY="410.0" onMousePressed="#silenciarActivar" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../img/iconos/pngwing.com.png" />
          </image>

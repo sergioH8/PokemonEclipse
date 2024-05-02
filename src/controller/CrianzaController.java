@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
@@ -23,8 +24,13 @@ import crud.ConexionBD;
 import crud.PokemonCRUD;
 
 public class CrianzaController {
-	
+
+	private LinkedList<Pokemon> pokedex;
 	private Stage stage;
+	private Pokemon pokemonCapturado;
+	public static boolean capturado;
+	
+	
     @FXML
     public Button btnAtras;
     @FXML
@@ -64,7 +70,7 @@ public class CrianzaController {
         try {
             ConexionBD conexionBD = new ConexionBD();
             Connection conexion = conexionBD.getConexion();
-            LinkedList<Pokemon> pokedex = PokemonCRUD.obtenerPokedex(conexion); // Obtener todos los Pokémones de la Pokédex
+            pokedex = PokemonCRUD.obtenerPokedex(conexion); // Obtener todos los Pokémones de la Pokédex
             btnAbrirHuevo.setVisible(false);
 
         } catch (SQLException e) {
@@ -81,7 +87,18 @@ public class CrianzaController {
 
     @FXML
     void cambiarHembra(MouseEvent event) {
+    	if (pokedex != null && !pokedex.isEmpty()) {
+            Random random = new Random();
+            
+            int index = random.nextInt(pokedex.size());
+            pokemonCapturado = pokedex.get(index);
 
+            
+            String imageUrl = "file:///" + pokemonCapturado.getImgFrontal();
+            Image imagenPokemon = new Image(imageUrl);
+            imgHembra.setImage(imagenPokemon);
+
+        }
     }
 
     @FXML

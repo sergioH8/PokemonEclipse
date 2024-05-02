@@ -238,22 +238,28 @@ public class LoginController {
     
     public void sonido() {
     	if(!this.sonido) {
-    		String sonido = "../../sonidos/inicio.wav";
+    		String sonido = "./sonidos/inicio.wav";
     		Media sound = new Media(new File(sonido).toURI().toString());
     		
     		mediaPlayer = new MediaPlayer(sound);
     		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
     		mediaPlayer.play();
-    		imgSonido.setImage(new Image(new File("./img/iconos/sonido.png").toURI().toString()));
+    		//imgSonido.setImage(new Image(new File("./img/iconos/sonido.png").toURI().toString()));
     		this.sonido = true;
+    		imgSinSonido.setVisible(false);
     	}else {
     		mediaPlayer.stop();
     		this.sonido = false;
     		imgSinSonido.setVisible(true);
-    		imgSonido.setImage(new Image(new File("./img/iconos/sonido.png").toURI().toString()));
+    		//imgSonido.setImage(new Image(new File("./img/iconos/sonido.png").toURI().toString()));
     	}
     }
     
+    @FXML
+	public void initialize() {
+    	sonido();	//Llamamos a la activación o desactivación del sonido
+    	
+    }
     
 }
 

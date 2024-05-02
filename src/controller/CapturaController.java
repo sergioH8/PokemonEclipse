@@ -58,10 +58,9 @@ public class CapturaController {
          if (pokedex != null && !pokedex.isEmpty()) {
              Random random = new Random();
              int index = random.nextInt(pokedex.size());
-             pokemonCapturado = pokedex.get(index);
-
-             
-             String imageUrl = "file:///" + pokemonCapturado.getImgFrontal();
+             pokemonCapturado = pokedex.get(index);           
+             //String imageUrl = "file:///" + pokemonCapturado.getImgFrontal();
+             String imageUrl = "file:///" + pokemonCapturado.getImgFrontal(); 
              Image imagenPokemon = new Image(imageUrl);
              imgPokemon.setImage(imagenPokemon);
              
