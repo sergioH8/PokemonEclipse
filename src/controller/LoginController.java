@@ -1,6 +1,7 @@
 package controller;
 
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +10,6 @@ import java.sql.SQLException;
 
 import crud.ConexionBD;
 import crud.EntrenadorCRUD;
-import crud.LoginCRUD;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,12 +19,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modelo.Entrenador;
 
@@ -32,6 +32,7 @@ public class LoginController {
 	
 	private Stage stage;
 	private MediaPlayer mediaPlayer;
+	private boolean sonido = false;
 	
     @FXML
     public ImageView imgLogin;
@@ -227,12 +228,7 @@ public class LoginController {
 
 	
 //	public void initialize() { //Metodo para poner el sonido en la pantalla de Login
-//        String sonido = "../../inicio.wav";
-//               
-//        Media sound = new Media(new File(sonido).toURI().toString());
-//        mediaPlayer = new MediaPlayer(sound);
-//        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);//Cuando acabe el audio volvera a empezar
-//        mediaPlayer.play();
+//		sonido();
 //	}
 	
 	/**
@@ -240,13 +236,28 @@ public class LoginController {
 	 * @param event
 	 */
     @FXML
-    public void silenciar(MouseEvent event) {
-    	imgSinSonido.setVisible(true);
+    public void silenciarActivar(MouseEvent event) {
+    	sonido();
     }
     
-    @FXML
-    void ponerSonido(MouseEvent event) {
-    	imgSinSonido.setVisible(false);
+
+    
+    public void sonido() {
+    	if(!this.sonido) {
+    		String sonido = "../../inicio.wav";
+    		Media sound = new Media(new File(sonido).toURI().toString());
+    		
+    		mediaPlayer = new MediaPlayer(sound);
+    		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+    		mediaPlayer.play();
+    		imgSonido.setImage(new Image(new File("./img/iconos/sonido.png").toURI().toString()));
+    		this.sonido = true;
+    	}else {
+    		mediaPlayer.stop();
+    		this.sonido = false;
+    		imgSinSonido.setVisible(true);
+    		imgSonido.setImage(new Image(new File("./img/iconos/sonido.png").toURI().toString()));
+    	}
     }
     
     

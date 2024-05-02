@@ -59,14 +59,14 @@
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Label>
-      <ImageView fx:id="imgSonido" fitHeight="41.0" fitWidth="49.0" layoutX="34.0" layoutY="419.0" onMouseClicked="#silenciar" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgSonido" fitHeight="41.0" fitWidth="49.0" layoutX="34.0" layoutY="419.0" onMouseClicked="#silenciarActivar" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/fondos/sonido.png" />
+            <Image url="@../../img/iconos/sonido.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgSinSonido" fitHeight="60.0" fitWidth="65.0" layoutX="26.0" layoutY="410.0" onMouseClicked="#ponerSonido" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="imgSinSonido" fitHeight="60.0" fitWidth="65.0" layoutX="26.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../../img/fondos/pngwing.com.png" />
+            <Image url="@../../img/iconos/pngwing.com.png" />
          </image>
       </ImageView>
     </AnchorPane>
