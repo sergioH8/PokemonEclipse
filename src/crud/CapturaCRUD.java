@@ -22,7 +22,7 @@ public class CapturaCRUD {
             ps.setInt(2, 0);  // 0 hace referencia a la lista 0 del entrenador lo cual es la caja 
             ps.setInt(3, entrenador.getIdEntrenador());
             ps.setString(4, p.getMote());
-            ps.setBoolean(5, p.getSexo());
+            ps.setBoolean(5, p.generarSexso()); 
             ps.setInt(6, 1); // Establece el nivel del Pokémon capturado como 1
             ps.setInt(7, p.getVitalidad());
             ps.setInt(8, p.getAtaque());

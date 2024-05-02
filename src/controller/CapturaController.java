@@ -7,6 +7,7 @@ import java.util.Random;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -18,11 +19,16 @@ import crud.PokemonCRUD;
 
 public class CapturaController {
 	
+	
+	private Entrenador entrenador;	
 	private LinkedList<Pokemon> pokedex;
 	private Stage stage;
 	private Pokemon pokemonCapturado;
 	public static boolean capturado;
 	
+	@FXML
+	private ImageView imgPokebal;
+	 
     @FXML
     public ImageView imgPokemon;
    
@@ -37,7 +43,11 @@ public class CapturaController {
 
     @FXML
     private ImageView imgCaptura;
-	private Entrenador entrenador;
+    
+    @FXML
+    private Label lblTexto;
+    
+	
 
     
     @FXML
@@ -69,8 +79,12 @@ public class CapturaController {
          if (capturado) {
              mostrarAnimacionCaptura();
              CapturaCRUD.insertCapturaCaja(pokemonCapturado, entrenador);
+             lblTexto.setText("Pokemon capturado!");
+             lblTexto.setVisible(true);
+             
          } else {
-             // Mostrar un mensaje indicando que la captura falló
+        	 lblTexto.setText("El Pokemon ha escapado!");
+             lblTexto.setVisible(true);
          }
    } 
          

@@ -24,8 +24,8 @@ public class MovimientoCRUD {
         Random random = new Random();
         int movimientoAleatorio;
         do {
-            movimientoAleatorio = random.nextInt(98) + 1; // Suponiendo que hay 98 movimientos en total
-        } while (excluidos.contains(movimientoAleatorio));
-        return movimientoAleatorio;
+            movimientoAleatorio = random.nextInt(98) + 1;  // Tengo 98 ataques creados
+        } while (excluidos.contains(movimientoAleatorio)); // Generamos un numero que se repite si esta en la lista
+        return movimientoAleatorio;						   // para buscar un numero que no este
     }
 }

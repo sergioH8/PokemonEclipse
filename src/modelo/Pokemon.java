@@ -432,5 +432,13 @@ public class Pokemon {
 
 	
 
+    public boolean generarSexso() {
+        // Generar un número aleatorio entre 0 y 1
+        double random = Math.random();
+
+
+        // Si el número aleatorio es menor que 0.5, el sexso es true 
+        return random < 0.5;
+    }
 
 }

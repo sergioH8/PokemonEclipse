@@ -82,7 +82,7 @@ public class MenuController {
 		ConexionBD con = new ConexionBD();
 
 		Connection conexion = con.getConexion();
-
+//
 //		try {
 //			PokemonCRUD.obtenerPokemon(conexion, this.entrenador, EQUIPOPRINCIPAL);
 //			PokemonCRUD.obtenerPokemon(conexion, this.entrenador, EQUIPOSECUNDARIO);
@@ -90,7 +90,7 @@ public class MenuController {
 //		}catch(Exception e) {
 //			e.setStackTrace(null);
 //		}
-
+//
 	}
 
 	public void salir(MouseEvent event) {
